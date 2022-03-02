@@ -135,11 +135,16 @@ class GameScore {
       // player1.addSet();
       // GameScore.updateSet(player1 ,player2);
       console.log("p1 win");
+      document.getElementById("sport-type").innerHTML = "The winner is Team A";
+      // console.log(document.getElementById("result"));
+      console.log("p----1 win");
+
       
     } else if (player2.getWinSet() == GameScore.#numOfSetToWin) {
       // player2.addSet();
       // GameScore.updateSet(player1 ,player2);
       console.log("p2 win");
+      document.getElementById("sport-type").innerHTML = "The winner is Team B";
     }
   }
 
@@ -180,6 +185,7 @@ class GameScore {
     player1.setWinSet(0);
     player2.setWinSet(0);
     GameScore.updateSet(player1, player2);
+    displayRadioValue();
   }
   
 
@@ -211,9 +217,13 @@ function updateScoreAndSet() {
 }
 
 function addScoreTeamA() {
-  teamA.addScore();
-  // updateScoreAndSet()
-  GameScore.updateScore(teamA, teamB);
+  if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin())
+  {
+
+    teamA.addScore();
+    // updateScoreAndSet()
+    GameScore.updateScore(teamA, teamB);
+  }
   // GameScore.updateScoreAndSet();
   // document.getElementById('score-a').innerText = teamA.getScore()
 }
@@ -225,9 +235,14 @@ function subtractScoreTeamA() {
 }
 
 function addScoreTeamB() {
-  teamB.addScore();
-  // updateScoreAndSet();
-  GameScore.updateScore(teamA, teamB);
+  if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin())
+  {
+
+    teamB.addScore();
+    // updateScoreAndSet()
+    GameScore.updateScore(teamA, teamB);
+  }
+  
 }
 
 function subtractScoreTeamB() {

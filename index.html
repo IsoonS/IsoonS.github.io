@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PointCounterProject</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://kit.fontawesome.com/4b75173c10.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_main">
+            <a href="#" id="navbar_logo"><i class="fa-solid fa-chess-rook"></i>PointCounter</a>
+            <div class="navbar_mobile" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="#" class="navbar_link">Home</a>
+                </li>
+                <li class="navbar_item">
+                    <a href="#" class="navbar_link">About</a>
+                </li>
+                <li class="navbar_item">
+                    <a href="#" class="navbar_link">Contact</a>
+                </li>
+                <li class="navbar_btn">
+                    <a href="#" class="button" onclick="return selectSport()">Select Sports</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <!-- <div id="flip">
+        <p>Select sport</p>
+    </div> -->
+    <!-- <div id="select-sport">
+        <p>this is my select sport</p>
+        <input type="radio" name="type-sport" value="Badminton" checked>Badminton
+        <input type="radio" name="type-sport" value="Table tennis">Table tennis
+        <input type="radio" name="type-sport" value="Volleyball">Volleyball
+        <input type="radio" name="type-sport" value="Sepak takraw">Sepak takraw
+        <div id="submit_button">
+            <a href="#" class="button" onclick="displayRadioValue()">Submit</a>
+        </div>
+        <div id="result">Type of sport: Badminton </div>
+    </div> -->
+
+    <div id="select-sport">
+        <p>this is my select sport</p>
+        <input type="radio" name="type-sport" value="Badminton" checked>Badminton
+        <input type="radio" name="type-sport" value="Table tennis">Table tennis
+        <input type="radio" name="type-sport" value="Volleyball">Volleyball
+        <input type="radio" name="type-sport" value="Sepak takraw">Sepak takraw
+        <button type="button" onclick="displayRadioValue()">
+            Submit
+        </button>
+        <div id="result">Type of sport: Badminton </div>
+    </div>
+
+    <section>
+        <div class="flex-container">
+            <div class="scoreboard-flexbox">
+                <div class="item-teamA">
+                    <div class="content">
+                        <div class="score-A">
+                            <h3 class="team-name">Team A</h3>
+                            <div class="score-number-box">
+                                <h4 class="score-number" id="score-a">0</h4>
+                            </div>
+
+                            <h5 class="home-away">H</h5>
+                        </div>
+                        <div class="button-panel">
+                            <div>
+                                <button class="button" onclick="addScoreTeamA()">add</button>
+                                <button class="button" onclick="subtractScoreTeamA()">subtract</buttonc>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="item-set">
+                    <div class="content">
+                        <div id="sport-type">
+                            <p>Badminton</p>
+                        </div>
+                        <br><br>
+                        <div class="set-panel">
+                            <div class="set">
+                                <h5 id="set-a">0</h5>
+                            </div>
+                            <div class="set-empty"></div>
+                            <div class="set">
+                                <h5 id="set-b">0</h5>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="button-panel">
+                            <div>
+
+                                <button class="button" onclick="resetScoreAndSet()">reset</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="item-teamB">
+                    <div class="content">
+                        <div class="score-B">
+                            <h3 class="team-name">Team B</h3>
+                            <h4 class="score-number" id="score-b">0</h4>
+                            <h5 class="home-away">A</h5>
+                        </div>
+                        <div class="button-panel">
+                            <div>
+                                <button class="button" onclick="addScoreTeamB()">add</button>
+                                <button class="button" onclick="subtractScoreTeamB()">subtract</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="app.js"></script>
+</body>
+
+</html>

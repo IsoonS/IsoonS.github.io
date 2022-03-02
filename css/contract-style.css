@@ -80,6 +80,11 @@ body {
   width: 100%;
 }
 
+a.disable {
+  pointer-events: none;
+  color: #ccc;
+}
+
 .navbar_btn .button {
   display: flex;
   justify-content: center;

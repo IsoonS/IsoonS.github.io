@@ -306,7 +306,11 @@ body {
     text-align: center;
     position:absolute;
     top: -4rem;
-    left: 9.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;   
+    text-align: center;
   }
   
   .home-away {

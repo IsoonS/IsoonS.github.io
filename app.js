@@ -278,10 +278,10 @@ function displayRadioValue() {
   for(i = 0; i < ele.length; i++) {
       if(ele[i].checked)
       {
-        document.getElementById("result").innerHTML
-                = "Type of sport: "+ele[i].value;
-        document.getElementById("sport-type").innerHTML = ele[i].value;
         GameScore.selectSportAndSetPointToWin(ele[i].value);
+        document.getElementById("result").innerHTML
+                = "Type of sport: "+ele[i].value + ", Set point: " + GameScore.getSetPoint();
+        document.getElementById("sport-type").innerHTML = ele[i].value;
         GameScore.resetScoreAndSet(teamA, teamB)
         console.log(GameScore.getSetPoint());
       }

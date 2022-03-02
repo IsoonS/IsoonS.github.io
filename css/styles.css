@@ -424,11 +424,22 @@ body {
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   
   #submit:hover {
     background: #110f0f;
     transition: all 0.3s ease;
+  }
+
+  .select-sport p {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .select-sport input {
+    margin-left: 10px;
   }
 
 

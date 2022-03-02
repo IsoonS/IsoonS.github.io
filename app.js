@@ -185,7 +185,17 @@ class GameScore {
     player1.setWinSet(0);
     player2.setWinSet(0);
     GameScore.updateSet(player1, player2);
-    displayRadioValue();
+    // displayRadioValue();
+    let ele = document.getElementsByName('type-sport');
+    for(let i = 0; i < ele.length; i++) {
+      if(ele[i].checked)
+      {
+        console.log(ele[i].value);
+        document.getElementById("sport-type").innerHTML = ele[i].value;
+        
+      }
+  }
+    
   }
   
 

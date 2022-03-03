@@ -249,11 +249,7 @@ body {
     margin-bottom: 20px;
   }
 
-  .item-set .set h5 {
-      font-size: 4rem;
-      color: white;
-      /* text-align: center; */
-  }
+  
 
   .item-teamB{
     width: 30%;
@@ -360,6 +356,16 @@ body {
     /* float: left; */
   }
   
+  .item-set .set-team-a h5 {
+    font-size: 4rem;
+    color: white;
+    /* text-align: center; */
+}
+  .item-set .set-team-b h5 {
+    font-size: 4rem;
+    color: white;
+    /* text-align: center; */
+}
   
   .set-panel {
     display: flex;
@@ -369,9 +375,19 @@ body {
     flex-wrap: wrap;
   }
   
-  .set-panel .set {
+  .set-panel .set-team-a {
     border: 5px solid #0b1f50;
-    background-color: #0b1f50;
+    background-color: rgb(255, 166, 0);
+    width: 40%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .set-panel .set-team-b {
+    border: 5px solid #0b1f50;
+    background-color: rgb(255, 0, 128);
     width: 40%;
     text-align: center;
     box-sizing: border-box;

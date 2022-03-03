@@ -1,5 +1,3 @@
-/* https://www.youtube.com/playlist?list=PLWKjhJtqVAbl1AfjiGyYxwpdAPi5v-1OU */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -241,7 +239,7 @@ container {
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 350px;
+  max-width: 300px;
   margin: auto;
   text-align: center;
   margin-top: 2rem;
@@ -255,7 +253,7 @@ container {
 
 .card #name-card2 {
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin-bottom: 0.3rem;
 }
 

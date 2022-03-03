@@ -6,6 +6,21 @@ menu.addEventListener('click', function() {
     menuLinks.classList.toggle('active')
 });
 
+
+// modal section
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 // let v = document.getElementById("score-a");
 // console.log(v);
 
@@ -60,7 +75,7 @@ class GameScore {
   }
 
   setScore(score) {
-    this.#score = 0;
+    this.#score = score;
   }
 
   getTeamName() {
@@ -155,6 +170,9 @@ class GameScore {
       document.getElementById("sport-type").innerHTML = "The winner is Team A";
       // console.log(document.getElementById("result"));
       console.log("p----1 win");
+      modal.style.display = "block";
+      // document.getElementsByClassName("modal-content")[0].innerHTML = "The winner is Team A";
+      document.getElementById("winnerTeamText").innerHTML = "The winner is Team A";
 
       
     } else if (player2.getWinSet() == GameScore.#numOfSetToWin) {
@@ -162,6 +180,8 @@ class GameScore {
       // GameScore.updateSet(player1 ,player2);
       console.log("p2 win");
       document.getElementById("sport-type").innerHTML = "The winner is Team B";
+      modal.style.display = "block";
+      document.getElementById("winnerTeamText").innerHTML = "The winner is Team B";
     }
   }
 
@@ -336,5 +356,9 @@ function selectSport() {
       $("#select-sport").slideToggle("slow");
   });
 }
+
+
+
+
   
   

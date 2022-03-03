@@ -96,7 +96,7 @@ a.disable {
   border: none;
   outline: none;
   border-radius: 4px;
-  background: #695;
+  background: gray;
   color: #ffff;
 }
 

@@ -29,6 +29,13 @@ class GameScore {
     'Volleyball': 25,
     'Sepak takraw': 21
   }
+
+  static numOfSetToWinByTypeOfSport = {
+    'Badminton': 2,
+    'Table tennis': 3,
+    'Volleyball': 3,
+    'Sepak takraw': 2
+  }
   
 
   static #totalScore;
@@ -72,6 +79,14 @@ class GameScore {
 
   static setSetPoint(setPoint) {
     GameScore.#setPoint = setPoint;
+  }
+
+  static getNumOfSetToWin() {
+    return GameScore.#numOfSetToWin;
+  }
+
+  static setNumOfSetToWin(numOfSetToWin) {
+    GameScore.#numOfSetToWin = numOfSetToWin;
   }
 
   static getNumOfSetToWin() {
@@ -126,6 +141,8 @@ class GameScore {
 
   static selectSportAndSetPointToWin(typeOfSport) {
     GameScore.setSetPoint(GameScore.setPointByTypeOfSport[typeOfSport]);
+    GameScore.setNumOfSetToWin(GameScore.numOfSetToWinByTypeOfSport[typeOfSport]);
+    console.log("Num of set to win" + GameScore.getNumOfSetToWin());
     
   }
 
@@ -221,10 +238,10 @@ const teamB = new ScorePlayer2("Team B");
 
 console.log(teamA);
 
-function updateScoreAndSet() {
-  document.getElementById('score-a').innerHTML = teamA.getScore();
-  document.getElementById('score-b').innerHTML = teamB.getScore();
-}
+// function updateScoreAndSet() {
+//   document.getElementById('score-a').innerHTML = teamA.getScore();
+//   document.getElementById('score-b').innerHTML = teamB.getScore();
+// }
 
 function addScoreTeamA() {
   if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin())

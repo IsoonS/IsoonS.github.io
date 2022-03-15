@@ -1,9 +1,9 @@
 const menu = document.querySelector('#mobile-menu')
 const menuLinks = document.querySelector('.navbar_menu')
 
-menu.addEventListener('click', function() {
-    menu.classList.toggle('is-active')
-    menuLinks.classList.toggle('active')
+menu.addEventListener('click', function () {
+  menu.classList.toggle('is-active')
+  menuLinks.classList.toggle('active')
 });
 
 
@@ -11,11 +11,11 @@ menu.addEventListener('click', function() {
 let modal = document.getElementById("myModal");
 let span = document.getElementsByClassName("close")[0];
 
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -37,6 +37,8 @@ window.onclick = function(event) {
 class GameScore {
   static #setPoint = 21; // default is badminton
   static #numOfSetToWin = 2;
+  
+  static #sport_name = 'Badminton';
 
   static setPointByTypeOfSport = {
     'Badminton': 21,
@@ -51,7 +53,7 @@ class GameScore {
     'Volleyball': 3,
     'Sepak takraw': 2
   }
-  
+
 
   static #totalScore;
 
@@ -60,7 +62,7 @@ class GameScore {
 
   #teamName;
 
-  
+
 
   constructor(teamName) {
     this.setTeamName(teamName);
@@ -68,7 +70,7 @@ class GameScore {
     this.#winSet = 0;
   }
 
-  
+
 
   getScore() {
     return this.#score;
@@ -86,7 +88,7 @@ class GameScore {
     this.#teamName = teamName;
   }
 
-  
+
 
   static getSetPoint() {
     return GameScore.#setPoint;
@@ -112,10 +114,18 @@ class GameScore {
     GameScore.#numOfSetToWin = numOfSetToWin;
   }
 
+  static setSportName(sportName) {
+    GameScore.#sport_name = sportName;
+  }
+
+  static getSportName() {
+    return GameScore.#sport_name;
+  }
+
   addScore() {
     if (this.#score < GameScore.#setPoint) {
       this.#score += 1;
-    } 
+    }
     // else if (GameScore.#setPoint == this.getScore()) {
     //   this.addSet();
     // }
@@ -132,7 +142,7 @@ class GameScore {
     if (this.#winSet < GameScore.#numOfSetToWin) {
 
       this.#winSet += 1;
-    } 
+    }
     // else if (this.#winSet == GameScore.#numOfSetToWin) {
     //   // this.#winSet++;
     //   // window.alert("win");
@@ -158,7 +168,7 @@ class GameScore {
     GameScore.setSetPoint(GameScore.setPointByTypeOfSport[typeOfSport]);
     GameScore.setNumOfSetToWin(GameScore.numOfSetToWinByTypeOfSport[typeOfSport]);
     console.log("Num of set to win" + GameScore.getNumOfSetToWin());
-    
+
   }
 
   static checkWinner(player1, player2) {
@@ -174,7 +184,7 @@ class GameScore {
       // document.getElementsByClassName("modal-content")[0].innerHTML = "The winner is Team A";
       document.getElementById("winnerTeamText").innerHTML = "The winner is Team A";
 
-      
+
     } else if (player2.getWinSet() == GameScore.#numOfSetToWin) {
       // player2.addSet();
       // GameScore.updateSet(player1 ,player2);
@@ -188,30 +198,30 @@ class GameScore {
   static checkForUpdateSet(player1, player2) {
     if (player1.getScore() == GameScore.#setPoint) {
       player1.addSet();
-      GameScore.updateSet(player1 ,player2);
-      
+      GameScore.updateSet(player1, player2);
+
     } else if (player2.getScore() == GameScore.#setPoint) {
       player2.addSet();
-      GameScore.updateSet(player1 ,player2);
+      GameScore.updateSet(player1, player2);
     }
     GameScore.checkWinner(player1, player2);
   }
 
   static updateSet(player1, player2) {
-    
+
     player1.setScore(0);
     player2.setScore(0);
     // document.getElementById('score-a').innerHTML = player1.getScore();
     // document.getElementById('score-b').innerHTML = player2.getScore();
 
     GameScore.updateScore(player1, player2);
-    
+
     document.getElementById('set-a').innerHTML = player1.getWinSet();
     document.getElementById('set-b').innerHTML = player2.getWinSet();
-    
+
   }
 
-  
+
   static updateScore(player1, player2) {
     document.getElementById('score-a').innerHTML = player1.getScore();
     document.getElementById('score-b').innerHTML = player2.getScore();
@@ -224,17 +234,16 @@ class GameScore {
     GameScore.updateSet(player1, player2);
     // displayRadioValue();
     let ele = document.getElementsByName('type-sport');
-    for(let i = 0; i < ele.length; i++) {
-      if(ele[i].checked)
-      {
+    for (let i = 0; i < ele.length; i++) {
+      if (ele[i].checked) {
         console.log(ele[i].value);
         document.getElementById("sport-type").innerHTML = ele[i].value;
-        
+
       }
+    }
+
   }
-    
-  }
-  
+
 
 }
 
@@ -243,7 +252,7 @@ class ScorePlayer1 extends GameScore {
     // this.setTeamName(teamName);
     super(teamName);
   }
-  
+
 }
 
 class ScorePlayer2 extends GameScore {
@@ -253,8 +262,41 @@ class ScorePlayer2 extends GameScore {
   }
 }
 
+// https://stackoverflow.com/questions/14266730/js-how-to-cache-a-variable
+
+function setDefaultVariables() {
+  var stored = localStorage['myKey'];
+  let dataFromCache;
+  if (stored) {
+    dataFromCache = JSON.parse(stored);
+  }
+  else { 
+    dataFromCache = { a: { score: 0, set: 0 }, b: { score: 0, set: 0 }, sport: 'Badminton', set_point: 21, num_of_set_to_win: 2}; 
+  }
+
+  console.log(dataFromCache);
+}
+
+function backUpVariables(score_a, set_a, score_b, set_b, sport, set_point, num_of_set_to_win) {
+  let backUpData = {a: { score: 0, set: 0 }, b: { score: 0, set: 0 }, sport: 'Badminton', set_point: 21, num_of_set_to_win: 2}; // default
+  backUpData['a']['score'] = score_a;
+  backUpData['a']['set'] = set_a;
+  backUpData['b']['score'] = score_b;
+  backUpData['b']['set'] = set_b;
+  backUpData['sport'] = sport;
+  backUpData['set_point'] = set_point;
+  backUpData['num_of_set_to_win'] = num_of_set_to_win;
+  
+  localStorage['myKey'] = JSON.stringify(backUpData);
+}
+
+// ------------------------------------------------------------------------------
+
 const teamA = new ScorePlayer1("Team A");
 const teamB = new ScorePlayer2("Team B");
+
+setDefaultVariables();
+
 
 console.log(teamA);
 
@@ -264,10 +306,10 @@ console.log(teamA);
 // }
 
 function addScoreTeamA() {
-  if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin())
-  {
+  if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin()) {
 
     teamA.addScore();
+    backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
     // updateScoreAndSet()
     GameScore.updateScore(teamA, teamB);
   }
@@ -278,23 +320,25 @@ function addScoreTeamA() {
 function subtractScoreTeamA() {
   teamA.subtractScore();
   // updateScoreAndSet()
+  backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
   GameScore.updateScore(teamA, teamB);
 }
 
 function addScoreTeamB() {
-  if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin())
-  {
+  if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin()) {
 
     teamB.addScore();
     // updateScoreAndSet()
+    backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
     GameScore.updateScore(teamA, teamB);
   }
-  
+
 }
 
 function subtractScoreTeamB() {
   teamB.subtractScore();
   // updateScoreAndSet()
+  backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
   GameScore.updateScore(teamA, teamB);
 }
 
@@ -303,10 +347,11 @@ function resetScoreAndSet() {
   // teamB.setScore(0);
   // updateScoreAndSet();
   // GameScore.updateScoreAndSet();
+  backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
 
   GameScore.resetScoreAndSet(teamA, teamB);
-  
-  
+
+
 }
 
 
@@ -321,20 +366,21 @@ function showSelect() {
 
 function displayRadioValue() {
   let ele = document.getElementsByName('type-sport');
-    
-  for(i = 0; i < ele.length; i++) {
-      if(ele[i].checked)
-      {
-        GameScore.selectSportAndSetPointToWin(ele[i].value);
-        document.getElementById("result").innerHTML
-                = "Type of sport: "+ele[i].value + ", Set point: " + GameScore.getSetPoint();
-        document.getElementById("sport-type").innerHTML = ele[i].value;
-        GameScore.resetScoreAndSet(teamA, teamB)
-        console.log(GameScore.getSetPoint());
-      }
+
+  for (i = 0; i < ele.length; i++) {
+    if (ele[i].checked) {
+      GameScore.selectSportAndSetPointToWin(ele[i].value);
+      document.getElementById("result").innerHTML
+        = "Type of sport: " + ele[i].value + ", Set point: " + GameScore.getSetPoint();
+      document.getElementById("sport-type").innerHTML = ele[i].value;
+      GameScore.resetScoreAndSet(teamA, teamB)
+      console.log(GameScore.getSetPoint());
+      GameScore.setSportName(ele[i].value);
+      backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+    }
   }
 
-  
+
 }
 
 // $(document).ready(function(){
@@ -351,14 +397,13 @@ function displayRadioValue() {
 // });
 function selectSport() {
 
-  $(document).ready(function(){
-    
-      $("#select-sport").slideToggle("slow");
+  $(document).ready(function () {
+
+    $("#select-sport").slideToggle("slow");
   });
 }
 
 
 
 
-  
-  
+

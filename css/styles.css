@@ -247,6 +247,7 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 20px;
+    position: relative;
   }
 
   
@@ -582,6 +583,41 @@ body {
   .close:hover {
     color: #000;
     text-decoration: none;
+    cursor: pointer;
+  }
+
+  .wrapper {
+    width: 400px;
+    padding: 20px;
+    margin:0 auto;
+    background: #fff;
+    box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
+    border: 1px solid rgb(64 64 64 / 5%);
+    border-radius: 12px;
+    position: absolute;
+    bottom: 23rem;
+  }
+  div#stopwatch {
+    font-size: 50px;
+    line-height: 60px;
+    text-align: center;
+    padding: 0 0 50px 0;
+  }
+  ul#buttons {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  ul#buttons button {
+    background: #0f62fe;
+    border: transparent;
+    width: 100px;
+    color: #fff;
+    font-size: 18px;
+    text-align: left;
+    display: block;
+    padding: 10px 0 10px 20px;
     cursor: pointer;
   }
   

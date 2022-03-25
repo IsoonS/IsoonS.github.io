@@ -648,6 +648,8 @@ body {
     border-radius: 12px;
     position: absolute;
     bottom: 24rem;
+    left: 0;
+    right: 0;
   }
   div#stopwatch {
     font-size: 50px;

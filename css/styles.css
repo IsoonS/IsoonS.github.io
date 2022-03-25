@@ -404,7 +404,59 @@ body {
 
   
   
-  .button-panel .button:hover {
+  .button-panel #resetButton:hover {
+    background-color: #071434;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    /* float: left; */
+  }
+  .button-panel #subtractButton2:hover {
+    background-color: #071434;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    /* float: left; */
+  }
+  .button-panel #subtractButton1:hover {
+    background-color: #071434;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    /* float: left; */
+  }
+  .button-panel #addButton2:hover {
+    background-color: #071434;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    /* float: left; */
+  }
+  .button-panel #addButton1:hover {
     background-color: #071434;
     border: none;
     color: white;
@@ -590,18 +642,19 @@ body {
     width: 400px;
     padding: 20px;
     margin:0 auto;
-    background: #fff;
+    background: #ffffff;
     box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
     border: 1px solid rgb(64 64 64 / 5%);
     border-radius: 12px;
     position: absolute;
-    bottom: 23rem;
+    bottom: 24rem;
   }
   div#stopwatch {
     font-size: 50px;
     line-height: 60px;
     text-align: center;
-    padding: 0 0 50px 0;
+    padding: 0 0 30px 0;
+    color: #002581;
   }
   ul#buttons {
     list-style: none;
@@ -609,15 +662,55 @@ body {
     align-items: center;
     justify-content: space-between;
   }
-  ul#buttons button {
-    background: #0f62fe;
+  ul#buttons li:nth-child(1) button {
+    background: rgb(0 174 240);
     border: transparent;
+    border-radius: 10px;
     width: 100px;
     color: #fff;
     font-size: 18px;
-    text-align: left;
+    text-align: center;
     display: block;
-    padding: 10px 0 10px 20px;
+    padding: 10px 0 10px 0;
     cursor: pointer;
   }
+  ul#buttons li:nth-child(1) button:hover {
+    background: #071434;
+  }
+
+  ul#buttons li:nth-child(2) button {
+    background: #ec4156;
+    border: transparent;
+    border-radius: 10px;
+    width: 100px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    padding: 10px 0 10px 0;
+    cursor: pointer;
+  }
+  ul#buttons li:nth-child(2) button:hover {
+    background: #071434;
+  }
+
+  ul#buttons li:nth-child(3) button {
+    background: #002581;
+    border: transparent;
+    border-radius: 10px;
+    width: 100px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    padding: 10px 0 10px 0;
+    cursor: pointer;
+  }
+  ul#buttons li:nth-child(3) button:hover {
+    background: #071434;
+  }
+
+
+  
+  
   

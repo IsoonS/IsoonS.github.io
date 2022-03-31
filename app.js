@@ -35,9 +35,11 @@ window.onclick = function (event) {
 // can add set 
 
 class GameScore {
+
+  static #haveWinner = false;
   static #setPoint = 21; // default is badminton
   static #numOfSetToWin = 2;
-  
+
   static #sport_name = 'Badminton';
 
   static setPointByTypeOfSport = {
@@ -89,6 +91,14 @@ class GameScore {
   }
 
 
+
+  static getHaveWinner() {
+    return GameScore.#haveWinner;
+  }
+
+  static setHaveWinner(haveWinner) {
+    GameScore.#haveWinner = haveWinner;
+  }
 
   static getSetPoint() {
     return GameScore.#setPoint;
@@ -174,6 +184,7 @@ class GameScore {
   static checkWinner(player1, player2) {
     console.log(player1.getWinSet());
     if (player1.getWinSet() == GameScore.#numOfSetToWin) {
+      GameScore.#haveWinner = true;
       // player1.addSet();
       // GameScore.updateSet(player1 ,player2);
       console.log("p1 win");
@@ -186,6 +197,7 @@ class GameScore {
 
 
     } else if (player2.getWinSet() == GameScore.#numOfSetToWin) {
+      GameScore.#haveWinner = true;
       // player2.addSet();
       // GameScore.updateSet(player1 ,player2);
       console.log("p2 win");
@@ -196,6 +208,7 @@ class GameScore {
   }
 
   static checkForUpdateSet(player1, player2) {
+    
     if (player1.getScore() == GameScore.#setPoint) {
       player1.addSet();
       GameScore.updateSet(player1, player2);
@@ -204,6 +217,7 @@ class GameScore {
       player2.addSet();
       GameScore.updateSet(player1, player2);
     }
+
     GameScore.checkWinner(player1, player2);
   }
 
@@ -225,10 +239,13 @@ class GameScore {
   static updateScore(player1, player2) {
     document.getElementById('score-a').innerHTML = player1.getScore();
     document.getElementById('score-b').innerHTML = player2.getScore();
-    GameScore.checkForUpdateSet(player1, player2);
+    if (!GameScore.#haveWinner) {
+      GameScore.checkForUpdateSet(player1, player2);
+    }
   }
 
   static resetScoreAndSet(player1, player2) {
+    GameScore.#haveWinner = false;
     player1.setWinSet(0);
     player2.setWinSet(0);
     GameScore.updateSet(player1, player2);
@@ -242,6 +259,17 @@ class GameScore {
       }
     }
 
+  }
+
+  static setInformationInScreen(player1, player2) {
+
+    document.getElementsByClassName("team-name")[0].innerText = player1.getTeamName();
+    document.getElementsByClassName("team-name")[1].innerText = player2.getTeamName();
+    document.getElementById('score-a').innerHTML = player1.getScore();
+    document.getElementById('score-b').innerHTML = player2.getScore();
+    document.getElementById('set-a').innerHTML = player1.getWinSet();
+    document.getElementById('set-b').innerHTML = player2.getWinSet();
+    document.getElementById("sport-type").innerHTML = GameScore.getSportName();
   }
 
 
@@ -262,54 +290,187 @@ class ScorePlayer2 extends GameScore {
   }
 }
 
-// https://stackoverflow.com/questions/14266730/js-how-to-cache-a-variable
+// // https://stackoverflow.com/questions/14266730/js-how-to-cache-a-variable
 
-function setDefaultVariables() {
-  var stored = localStorage['myKey'];
-  let dataFromCache;
-  if (stored) {
-    dataFromCache = JSON.parse(stored);
-  }
-  else { 
-    dataFromCache = { a: { score: 0, set: 0 }, b: { score: 0, set: 0 }, sport: 'Badminton', set_point: 21, num_of_set_to_win: 2}; 
-  }
+// function setDefaultVariables() {
+//   var stored = localStorage['scoreKey'];
+//   let dataFromCache;
+//   if (stored) {
+//     dataFromCache = JSON.parse(stored);
+//   }
+//   else {
+//     // if not have retrieve from php -> from database
+//     dataFromCache = "not have";
+//   }
 
-  console.log(dataFromCache);
-}
-
-function backUpVariables(score_a, set_a, score_b, set_b, sport, set_point, num_of_set_to_win) {
-  let backUpData = {a: { score: 0, set: 0 }, b: { score: 0, set: 0 }, sport: 'Badminton', set_point: 21, num_of_set_to_win: 2}; // default
-  backUpData['a']['score'] = score_a;
-  backUpData['a']['set'] = set_a;
-  backUpData['b']['score'] = score_b;
-  backUpData['b']['set'] = set_b;
-  backUpData['sport'] = sport;
-  backUpData['set_point'] = set_point;
-  backUpData['num_of_set_to_win'] = num_of_set_to_win;
+//   console.log(dataFromCache);
   
-  localStorage['myKey'] = JSON.stringify(backUpData);
+// }
+
+function sendToPhp(score_a, set_a, score_b, set_b, sport, set_point, num_of_set_to_win) {
+  // console.log(str);
+
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+  // https://www.google.com/search?q=get+multiple+value+in+php&oq=get+multiple+value+in+php&aqs=chrome..69i57j0i22i30l4j0i390.14066j0j7&sourceid=chrome&ie=UTF-8
+  const datas = {
+    score_a: score_a,
+    set_a: set_a,
+    score_b: score_b,
+    set_b: set_b,
+    sport: sport,
+    set_point: set_point,
+    num_of_set_to_win: num_of_set_to_win
+  }
+
+  let str = "";
+
+  for (const property in datas) {
+    console.log(`${property}: ${datas[property]}`);
+    str += `${property}=${datas[property]}&`;
+  }
+
+  str = str.substring(0, str.length - 1);
+  console.log(str);
+
+
+  // AJAX Request
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", "update.php?" + str, true);
+  xmlhttp.onload = function () {
+    if (this.status == 200) {
+      // document.getElementById('output').innerHTML = this.responseText;
+      console.log(this.responseText);
+    }
+  }
+  xmlhttp.send();
 }
+
+function getFromPhp() {
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", "get_data.php", true);
+  xmlhttp.onload = function () {
+    if (this.status == 200) {
+      // document.getElementById('output').innerHTML = this.responseText;
+      console.log(this.responseText);
+    }
+  }
+  xmlhttp.send();
+}
+
+
+
+// function backUpVariables(score_a, set_a, score_b, set_b, sport, set_point, num_of_set_to_win) {
+//   let backUpData = { a: { score: 0, set: 0 }, b: { score: 0, set: 0 }, sport: 'Badminton', set_point: 21, num_of_set_to_win: 2 }; // default
+//   backUpData['a']['score'] = score_a;
+//   backUpData['a']['set'] = set_a;
+//   backUpData['b']['score'] = score_b;
+//   backUpData['b']['set'] = set_b;
+//   backUpData['sport'] = sport;
+//   backUpData['set_point'] = set_point;
+//   backUpData['num_of_set_to_win'] = num_of_set_to_win;
+
+//   // console.log(score_a);
+
+//   localStorage['myKey'] = JSON.stringify(backUpData);
+
+
+// }
+
+
 
 // ------------------------------------------------------------------------------
 
 const teamA = new ScorePlayer1("Team A");
 const teamB = new ScorePlayer2("Team B");
 
-setDefaultVariables();
+// setDefaultVariables();
 
 
-console.log(teamA);
+// console.log(teamA);
 
 // function updateScoreAndSet() {
 //   document.getElementById('score-a').innerHTML = teamA.getScore();
 //   document.getElementById('score-b').innerHTML = teamB.getScore();
 // }
 
+// var IDs = new Array();
+//         images['s'] = "Images/Block_01.png";
+//         images['g'] = "Images/Block_02.png";
+//         images['C'] = "Images/Block_03.png";
+//         images['d'] = "Images/Block_04.png";
+
+// https://stackoverflow.com/questions/14266730/js-how-to-cache-a-variable
+
+
+function setDefaultVariables() {
+  var stored = localStorage['scoreKey'];
+  let dataFromCache;
+  if (stored) {
+    dataFromCache = JSON.parse(stored);
+  }
+  else {
+    // if not have retrieve from php -> from database
+    dataFromCache = "not have";
+  }
+
+  console.log(dataFromCache);
+
+  teamA.setTeamName(dataFromCache['team_a']);
+  teamA.setScore(dataFromCache['score_a']);
+  teamA.setWinSet(dataFromCache['set_a']);
+
+  teamB.setTeamName(dataFromCache['team_b']);
+  teamB.setScore(dataFromCache['score_b']);
+  teamB.setWinSet(dataFromCache['set_b']);
+
+  GameScore.setSportName(dataFromCache['sport']);
+  GameScore.setSetPoint(dataFromCache['set_point']);
+  GameScore.setNumOfSetToWin(dataFromCache['num_of_set_to_win']);
+  GameScore.setHaveWinner(dataFromCache['have_winner']);
+
+  GameScore.setInformationInScreen(teamA, teamB);
+  
+  
+}
+
+setDefaultVariables();
+
+function getDataArray() {
+  // array in js can have multiple type 
+  const returnArray = [teamA.getTeamName(), teamA.getScore(), teamA.getWinSet(), teamB.getTeamName(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin(), GameScore.getHaveWinner()];
+  // console.log(returnArray);
+  // console.log(returnArray[0]);
+  return returnArray;
+}
+
+function backUpVariables() {
+  const dataArray = getDataArray();
+  let backUpData = {};
+  backUpData['team_a'] = dataArray[0]
+  backUpData['score_a'] = dataArray[1];
+  backUpData['set_a'] = dataArray[2];
+  backUpData['team_b'] = dataArray[3];
+  backUpData['score_b'] = dataArray[4];
+  backUpData['set_b'] = dataArray[5];
+  backUpData['sport'] = dataArray[6];
+  backUpData['set_point'] = dataArray[7];
+  backUpData['num_of_set_to_win'] = dataArray[8];
+  backUpData['have_winner'] = dataArray[9];
+  localStorage['scoreKey'] = JSON.stringify(backUpData);
+  console.log(backUpData);
+}
+
+
 function addScoreTeamA() {
   if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin()) {
 
+    
     teamA.addScore();
-    backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+    // const data = getDataArray();
+    // console.log(typeof(data));
+    // console.log(data[0]);
+    // backUpVariables(data[0], data[1], data[2], data[3], data[4], data[5], data[6]);
+    backUpVariables();
     // updateScoreAndSet()
     GameScore.updateScore(teamA, teamB);
   }
@@ -320,7 +481,8 @@ function addScoreTeamA() {
 function subtractScoreTeamA() {
   teamA.subtractScore();
   // updateScoreAndSet()
-  backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+  // backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+  backUpVariables();
   GameScore.updateScore(teamA, teamB);
 }
 
@@ -329,7 +491,8 @@ function addScoreTeamB() {
 
     teamB.addScore();
     // updateScoreAndSet()
-    backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+    // backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+    backUpVariables();
     GameScore.updateScore(teamA, teamB);
   }
 
@@ -338,7 +501,8 @@ function addScoreTeamB() {
 function subtractScoreTeamB() {
   teamB.subtractScore();
   // updateScoreAndSet()
-  backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+  // backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+  backUpVariables();
   GameScore.updateScore(teamA, teamB);
 }
 
@@ -347,9 +511,10 @@ function resetScoreAndSet() {
   // teamB.setScore(0);
   // updateScoreAndSet();
   // GameScore.updateScoreAndSet();
-  backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
-
+  // backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+  
   GameScore.resetScoreAndSet(teamA, teamB);
+  backUpVariables();
 
 
 }
@@ -403,49 +568,74 @@ function selectSport() {
   });
 }
 
+document.getElementsByClassName("team-name")[0].addEventListener("input", function() {
+  // console.log("input event fired");
+  // console.log(document.getElementsByClassName("team-name")[0].innerText);
+  // console.log(document.getElementsByClassName("team-name")[0].innerText);
+  let teamName = document.getElementsByClassName("team-name")[0].innerText;
+  teamA.setTeamName(teamName);
+  backUpVariables();
+}, false);
+document.getElementsByClassName("team-name")[1].addEventListener("input", function() {
+  // console.log("input event fired");
+  // console.log(document.getElementsByClassName("team-name")[1].innerText);
+  let teamName = document.getElementsByClassName("team-name")[1].innerText;
+  teamB.setTeamName(teamName);
+  backUpVariables();
+  console.log(teamB.getTeamName());
+}, false);
+
+function editTeamName() {
+  console.log(newTeamName);
+  if (team == "a") {
+    console.log("change team A");
+  } else if (team == "b") {
+    console.log("change team B");
+  }
+}
+
 
 
 // https://dev.to/stackfindover/how-to-create-a-stopwatch-in-javascript-57a8
 // Stopwatch script
 const watch = document.querySelector("#stopwatch");
-      let millisecound = 0;
-      let timer;
+let millisecound = 0;
+let timer;
 
-      function timeStart(){
-        watch.style.color = "#002581";
-        clearInterval(timer);
-        timer = setInterval(() => {
-          millisecound += 10;
+function timeStart() {
+  watch.style.color = "#002581";
+  clearInterval(timer);
+  timer = setInterval(() => {
+    millisecound += 1000;
 
-          let dateTimer = new Date(millisecound);
+    let dateTimer = new Date(millisecound);
 
-          watch.innerHTML = 
-          ('0'+dateTimer.getUTCHours()).slice(-2) + ':' +
-          ('0'+dateTimer.getUTCMinutes()).slice(-2) + ':' +
-          ('0'+dateTimer.getUTCSeconds()).slice(-2) + ':' +
-          ('0'+dateTimer.getUTCMilliseconds()).slice(-3,-1);
-        }, 10);
-      }
+    watch.innerHTML =
+      ('0' + dateTimer.getUTCHours()).slice(-2) + ':' +
+      ('0' + dateTimer.getUTCMinutes()).slice(-2) + ':' +
+      ('0' + dateTimer.getUTCSeconds()).slice(-2);
+  }, 1000);
+}
 
 
-      function timePaused() {
-        watch.style.color = "red";
-        clearInterval(timer);
-      }
+function timePaused() {
+  watch.style.color = "red";
+  clearInterval(timer);
+}
 
-      function timeReset(){
-        watch.style.color = "#002581";
-        setInterval(timer)
-        millisecound = 0;
-        watch.innerHTML = "00:00:00:00";
-      }
+function timeReset() {
+  watch.style.color = "#002581";
+  setInterval(timer)
+  millisecound = 0;
+  watch.innerHTML = "00:00:00";
+}
 
-      document.addEventListener('click', (e) => {
-        const el = e.target;
+document.addEventListener('click', (e) => {
+  const el = e.target;
 
-        if(el.id === 'start') timeStart();
-        if(el.id === 'pause') timePaused();
-        if(el.id === 'reset') timeReset();
-      })
+  if (el.id === 'start') timeStart();
+  if (el.id === 'pause') timePaused();
+  if (el.id === 'reset') timeReset();
+})
 
 

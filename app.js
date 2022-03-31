@@ -407,28 +407,28 @@ function setDefaultVariables() {
   let dataFromCache;
   if (stored) {
     dataFromCache = JSON.parse(stored);
+    // console.log(dataFromCache);
+  
+    teamA.setTeamName(dataFromCache['team_a']);
+    teamA.setScore(dataFromCache['score_a']);
+    teamA.setWinSet(dataFromCache['set_a']);
+  
+    teamB.setTeamName(dataFromCache['team_b']);
+    teamB.setScore(dataFromCache['score_b']);
+    teamB.setWinSet(dataFromCache['set_b']);
+  
+    GameScore.setSportName(dataFromCache['sport']);
+    GameScore.setSetPoint(dataFromCache['set_point']);
+    GameScore.setNumOfSetToWin(dataFromCache['num_of_set_to_win']);
+    GameScore.setHaveWinner(dataFromCache['have_winner']);
+  
+    GameScore.setInformationInScreen(teamA, teamB);
   }
   else {
     // if not have retrieve from php -> from database
     dataFromCache = "not have";
   }
 
-  console.log(dataFromCache);
-
-  teamA.setTeamName(dataFromCache['team_a']);
-  teamA.setScore(dataFromCache['score_a']);
-  teamA.setWinSet(dataFromCache['set_a']);
-
-  teamB.setTeamName(dataFromCache['team_b']);
-  teamB.setScore(dataFromCache['score_b']);
-  teamB.setWinSet(dataFromCache['set_b']);
-
-  GameScore.setSportName(dataFromCache['sport']);
-  GameScore.setSetPoint(dataFromCache['set_point']);
-  GameScore.setNumOfSetToWin(dataFromCache['num_of_set_to_win']);
-  GameScore.setHaveWinner(dataFromCache['have_winner']);
-
-  GameScore.setInformationInScreen(teamA, teamB);
   
   
 }

@@ -208,7 +208,7 @@ class GameScore {
   }
 
   static checkForUpdateSet(player1, player2) {
-    
+
     if (player1.getScore() == GameScore.#setPoint) {
       player1.addSet();
       GameScore.updateSet(player1, player2);
@@ -304,7 +304,7 @@ class ScorePlayer2 extends GameScore {
 //   }
 
 //   console.log(dataFromCache);
-  
+
 // }
 
 function sendToPhp(score_a, set_a, score_b, set_b, sport, set_point, num_of_set_to_win) {
@@ -407,30 +407,45 @@ function setDefaultVariables() {
   let dataFromCache;
   if (stored) {
     dataFromCache = JSON.parse(stored);
-    // console.log(dataFromCache);
-  
+
     teamA.setTeamName(dataFromCache['team_a']);
     teamA.setScore(dataFromCache['score_a']);
     teamA.setWinSet(dataFromCache['set_a']);
-  
+
     teamB.setTeamName(dataFromCache['team_b']);
     teamB.setScore(dataFromCache['score_b']);
     teamB.setWinSet(dataFromCache['set_b']);
-  
+
     GameScore.setSportName(dataFromCache['sport']);
     GameScore.setSetPoint(dataFromCache['set_point']);
     GameScore.setNumOfSetToWin(dataFromCache['num_of_set_to_win']);
     GameScore.setHaveWinner(dataFromCache['have_winner']);
-  
+
+    // document.querySelector(`input[value=${dataFromCache['sport']}]`); 
+    // console.log(document.querySelector(`input[value=${dataFromCache['sport']}]`));
+    console.log(dataFromCache['sport']);
+
     GameScore.setInformationInScreen(teamA, teamB);
+
+    let ele = document.getElementsByName('type-sport');
+
+    for (i = 0; i < ele.length; i++) {
+      if (ele[i].value == dataFromCache['sport']) {
+        ele[i].checked = true;
+        GameScore.selectSportAndSetPointToWin(ele[i].value);
+        document.getElementById("result").innerHTML
+          = "Type of sport: " + ele[i].value + ", Set point: " + GameScore.getSetPoint();
+        document.getElementById("sport-type").innerHTML = ele[i].value;
+        backUpVariables();
+      }
+    }
   }
   else {
     // if not have retrieve from php -> from database
     dataFromCache = "not have";
   }
 
-  
-  
+
 }
 
 setDefaultVariables();
@@ -464,7 +479,7 @@ function backUpVariables() {
 function addScoreTeamA() {
   if (teamA.getWinSet() < GameScore.getNumOfSetToWin() && teamB.getWinSet() < GameScore.getNumOfSetToWin()) {
 
-    
+
     teamA.addScore();
     // const data = getDataArray();
     // console.log(typeof(data));
@@ -512,7 +527,7 @@ function resetScoreAndSet() {
   // updateScoreAndSet();
   // GameScore.updateScoreAndSet();
   // backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
-  
+
   GameScore.resetScoreAndSet(teamA, teamB);
   backUpVariables();
 
@@ -539,9 +554,10 @@ function displayRadioValue() {
         = "Type of sport: " + ele[i].value + ", Set point: " + GameScore.getSetPoint();
       document.getElementById("sport-type").innerHTML = ele[i].value;
       GameScore.resetScoreAndSet(teamA, teamB)
-      console.log(GameScore.getSetPoint());
+      // console.log(GameScore.getSetPoint());
       GameScore.setSportName(ele[i].value);
-      backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+      // backUpVariables(teamA.getScore(), teamA.getWinSet(), teamB.getScore(), teamB.getWinSet(), GameScore.getSportName(), GameScore.getSetPoint(), GameScore.getNumOfSetToWin());
+      backUpVariables();
     }
   }
 
@@ -568,7 +584,7 @@ function selectSport() {
   });
 }
 
-document.getElementsByClassName("team-name")[0].addEventListener("input", function() {
+document.getElementsByClassName("team-name")[0].addEventListener("input", function () {
   // console.log("input event fired");
   // console.log(document.getElementsByClassName("team-name")[0].innerText);
   // console.log(document.getElementsByClassName("team-name")[0].innerText);
@@ -576,7 +592,7 @@ document.getElementsByClassName("team-name")[0].addEventListener("input", functi
   teamA.setTeamName(teamName);
   backUpVariables();
 }, false);
-document.getElementsByClassName("team-name")[1].addEventListener("input", function() {
+document.getElementsByClassName("team-name")[1].addEventListener("input", function () {
   // console.log("input event fired");
   // console.log(document.getElementsByClassName("team-name")[1].innerText);
   let teamName = document.getElementsByClassName("team-name")[1].innerText;

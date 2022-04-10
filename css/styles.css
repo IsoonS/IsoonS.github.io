@@ -268,7 +268,7 @@ body {
   }
   
   .score-A {
-    padding: 5rem;
+    padding: 6vw;
     margin-bottom: 2rem;
     border: 7px solid #0b1f50;
     border-radius: 20px;
@@ -277,7 +277,7 @@ body {
     /* width: 0.5rem; */
   }
   .score-B {
-    padding: 5rem;
+    padding: 6vw;
     margin-bottom: 2rem;
     border: 7px solid #0b1f50;
     border-radius: 20px;
@@ -290,7 +290,7 @@ body {
     width: 100%;
     /* box-sizing: border-box; */
     text-align: center;
-    font-size: 120px;
+    font-size: 6.25vw;
     padding: 0;
   }
 
@@ -299,7 +299,7 @@ body {
   }
   
   .team-name {
-    font-size: 2rem;
+    font-size: 2.3vw;
     text-align: center;
     position:absolute;
     top: -4rem;
@@ -316,7 +316,7 @@ body {
     position: absolute;
     right:1rem;
     bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
   }
   
   .button-panel {
@@ -471,12 +471,12 @@ body {
   }
   
   .item-set .set-team-a h5 {
-    font-size: 4rem;
+    font-size: 4vw;
     color: white;
     /* text-align: center; */
 }
   .item-set .set-team-b h5 {
-    font-size: 4rem;
+    font-size: 4vw;
     color: white;
     /* text-align: center; */
 }
@@ -492,7 +492,7 @@ body {
   .set-panel .set-team-a {
     border: 5px solid #0b1f50;
     background-color: rgb(255, 166, 0);
-    width: 40%;
+    width: 6.5vw;
     text-align: center;
     box-sizing: border-box;
     padding: 1rem;
@@ -502,7 +502,7 @@ body {
   .set-panel .set-team-b {
     border: 5px solid #0b1f50;
     background-color: rgb(255, 0, 128);
-    width: 40%;
+    width: 6.5vw;
     text-align: center;
     box-sizing: border-box;
     padding: 1rem;
@@ -535,7 +535,7 @@ body {
 
   #sport-type {
     text-align: center;
-    font-size: 2em;
+    font-size: 2.3vw;
     font-weight: bold;
   }
 
@@ -652,7 +652,7 @@ body {
     right: 0;
   }
   div#stopwatch {
-    font-size: 50px;
+    font-size: 3.5vw;
     line-height: 60px;
     text-align: center;
     padding: 0 0 30px 0;
@@ -670,7 +670,7 @@ body {
     border-radius: 10px;
     width: 100px;
     color: #fff;
-    font-size: 18px;
+    font-size: 1vw;
     text-align: center;
     display: block;
     padding: 10px 0 10px 0;
@@ -686,7 +686,7 @@ body {
     border-radius: 10px;
     width: 100px;
     color: #fff;
-    font-size: 18px;
+    font-size: 1vw;
     text-align: center;
     display: block;
     padding: 10px 0 10px 0;
@@ -702,7 +702,7 @@ body {
     border-radius: 10px;
     width: 100px;
     color: #fff;
-    font-size: 18px;
+    font-size: 1vw;
     text-align: center;
     display: block;
     padding: 10px 0 10px 0;
@@ -712,6 +712,33 @@ body {
     background: #071434;
   }
 
+@media screen and (max-width: 1261px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  ul#buttons li:nth-child(3) button {
+    width: 80px;
+  }
+  ul#buttons li:nth-child(1) button {
+    width: 80px;
+  }
+
+  ul#buttons li:nth-child(2) button {
+    width: 80px;
+  }
+
+  .button-panel #addButton1 {
+    margin-right: 0;
+  }
+  .button-panel #addButton2 {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 810px) {
+
+}
 
   
   

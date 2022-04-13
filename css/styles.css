@@ -913,25 +913,26 @@ body {
   }
 
   .button-panel #resetButton:hover {
-    font-size: 2vw;
+    font-size: 2.5vw;
+    padding: 1.5vw 5vw;;
   }
   .button-panel #subtractButton2:hover {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
   .button-panel #subtractButton1:hover {
     
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
   .button-panel #addButton2:hover {
     
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
   .button-panel #addButton1:hover {
     
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
   .button-panel #resetButton {
-    font-size: 2vw ;
+    font-size: 2.5vw ;
   }
 
   #sport-type {
@@ -946,7 +947,7 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 2.1vw;
+  font-size: 2.5vw;
   cursor: pointer;
   border-radius: 10px;
   margin-right: 10px;
@@ -955,52 +956,26 @@ body {
 
 .button-panel #addButton1 {
   margin-bottom: 10px;
-}
-
-.button-panel #addButton1 {
   font-size: 2.5vw;
-}
-
-.button-panel #addButton1 {
   padding: 0.85vw 7vw;
 }
 
 
 .button-panel #addButton2 {
   margin-bottom: 10px;
-}
-
-.button-panel #addButton2 {
   font-size: 2.5vw;
-}
-
-.button-panel #addButton2 {
   padding: 0.85vw 7vw;
 }
 
 .button-panel #subtractButton1 {
   margin-right: 0;
-}
-
-.button-panel #subtractButton1 {
   font-size: 2.5vw;
-}
-
-.button-panel #subtractButton1 {
- 
   padding: 0.85vw 5vw;
 }
 
 .button-panel #subtractButton2 {
   margin-right: 0;
-}
-
-.button-panel #subtractButton2 {
   font-size: 2.5vw;
-}
-
-.button-panel #subtractButton2 {
- 
   padding: 0.85vw 5vw;
 }
 

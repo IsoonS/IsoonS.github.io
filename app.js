@@ -431,6 +431,7 @@ function setDefaultVariables() {
 
     for (i = 0; i < ele.length; i++) {
       if (ele[i].value == dataFromCache['sport']) {
+        // https://bobbyhadz.com/blog/javascript-set-radio-to-checked-unchecked#:~:text=To%20set%20a%20radio%20button,same%20name%20attribute%20become%20unchecked.
         ele[i].checked = true;
         GameScore.selectSportAndSetPointToWin(ele[i].value);
         document.getElementById("result").innerHTML

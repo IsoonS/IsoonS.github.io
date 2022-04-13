@@ -821,6 +821,26 @@ body {
     width: 10vw;
     border-radius: 15px;
   }
+
+  .button-panel #addButton1 {
+    height: 100%;
+    font-size: 2vw;
+  }
+
+  .button-panel #addButton2 {
+    height: 100%;
+    font-size: 2vw;
+  }
+
+  .button-panel #subtractButton1 {
+    font-size: 2vw;
+  }
+
+  .button-panel #subtractButton2 {
+    font-size: 2vw;
+  }
+
+
 }
 
   

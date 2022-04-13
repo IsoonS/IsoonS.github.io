@@ -807,8 +807,19 @@ body {
   .score-A {
     border: 4px solid #0b1f50;
   }
+
   .score-B {
     border: 4px solid #0b1f50;
+  }
+
+  .set-panel .set-team-a {
+    width: 10vw;
+    border-radius: 15px;
+  }
+
+  .set-panel .set-team-b {
+    width: 10vw;
+    border-radius: 15px;
   }
 }
 

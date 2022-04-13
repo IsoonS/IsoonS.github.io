@@ -912,6 +912,25 @@ body {
     
   }
 
+  #sport-type {
+    font-size: 2.5vw;
+}
+
+.button-panel #resetButton {
+  background-color: #002581;
+  border: none;
+  color: white;
+  padding: 1.5vw 5vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2.1vw;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 45px;
+}
+
 }
 
   

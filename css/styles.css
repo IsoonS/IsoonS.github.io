@@ -741,8 +741,55 @@ body {
   }
 }
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 1125px) {
+  #sport-type {
+    text-align: center;
+    font-size: 2vw;
+}
 
+@media screen and (max-width: 1125px) {
+  .content {
+    margin: 0;
+  }
+  .set-panel .set-team-a {
+    width: 9vw;
+    border-radius: 15px;
+  }
+  .set-panel .set-team-b {
+    width: 9vw;
+    border-radius: 15px;
+  }
+  .set-panel .set-empty {
+    width: 5%;
+  }
+  .team-name {
+    top: -2rem;
+  }
+  .scoreboard-flexbox {
+    margin-top: 250px;
+  }
+  ul#buttons {
+    padding: 0;
+  }
+
+  ul#buttons li:nth-child(1) button {
+    width: 76px;
+    font-size: 15px;
+    height: 35px;
+    line-height: normal;
+  }
+  ul#buttons li:nth-child(2) button {
+    width: 76px;
+    font-size: 15px;
+    height: 35px;
+    line-height: normal;
+  }
+  ul#buttons li:nth-child(3) button {
+    width: 76px;
+    font-size: 15px;
+    height: 35px;
+    line-height: normal;
+  }
 }
 
   

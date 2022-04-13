@@ -788,6 +788,7 @@ body {
     height: 35px;
     line-height: normal;
   }
+  
 }
 
 @media screen and (max-width: 480px) {
@@ -909,7 +910,28 @@ body {
   .content{
     display: flex;
     flex-direction: column;
+  }
+
+  .button-panel #resetButton:hover {
+    font-size: 2vw;
+  }
+  .button-panel #subtractButton2:hover {
+    font-size: 2vw;
+  }
+  .button-panel #subtractButton1:hover {
     
+    font-size: 2vw;
+  }
+  .button-panel #addButton2:hover {
+    
+    font-size: 2vw;
+  }
+  .button-panel #addButton1:hover {
+    
+    font-size: 2vw;
+  }
+  .button-panel #resetButton {
+    font-size: 2vw ;
   }
 
 }

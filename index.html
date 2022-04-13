@@ -124,7 +124,7 @@
                             <h5 class="home-away">H</h5>
                         </div>
                         <div class="button-panel">
-                            <div>
+                            <div class="button-panel-flex-A">
                                 <button class="button" id="addButton1" onclick="addScoreTeamA()">Add</button>
                                 <button class="button" id="subtractButton1" onclick="subtractScoreTeamA()">Subtract
                                     </buttonc>
@@ -144,30 +144,32 @@
                           <li><button id="reset">Reset</button></li>
                         </ul>
                       </div> -->
-
-                    <div class="content">
-                        <div id="sport-type">
-                            <p>Badminton</p>
-                        </div>
-                        <br><br>
-                        <div class="set-panel">
-                            <div class="set-team-a">
-                                <h5 id="set-a">0</h5>
+                    <div class="content-container">
+                        <div class="content">
+                            <div id="sport-type">
+                                <p>Badminton</p>
                             </div>
-                            <div class="set-empty"></div>
-                            <div class="set-team-b">
-                                <h5 id="set-b">0</h5>
+                            <br><br>
+                            <div class="set-panel">
+                                <div class="set-team-a">
+                                    <h5 id="set-a">0</h5>
+                                </div>
+                                <div class="set-empty"></div>
+                                <div class="set-team-b">
+                                    <h5 id="set-b">0</h5>
+                                </div>
                             </div>
-                        </div>
-                        <br><br>
-                        <div class="button-panel">
-                            <div>
-
-                                <button class="button" id="resetButton" onclick="resetScoreAndSet()">Reset</button>
+                            <br><br>
+                            <div class="button-panel">
+                                <div>
+    
+                                    <button class="button" id="resetButton" onclick="resetScoreAndSet()">Reset</button>
+                                </div>
                             </div>
+    
                         </div>
-
                     </div>
+                    
                 </div>
 
                 <div class="item-teamB">
@@ -178,7 +180,7 @@
                             <h5 class="home-away">A</h5>
                         </div>
                         <div class="button-panel">
-                            <div>
+                            <div class="button-panel-flex-B">
                                 <button class="button" id="addButton2" onclick="addScoreTeamB()">Add</button>
                                 <button class="button" id="subtractButton2"
                                     onclick="subtractScoreTeamB()">Subtract</button>

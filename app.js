@@ -655,4 +655,19 @@ document.addEventListener('click', (e) => {
   if (el.id === 'reset') timeReset();
 })
 
+// 
+function matches() {
+  var elem = document.getElementById("addButton1");
+  var elem2 = document.getElementById("addButton2");
+  var elem3 = document.getElementById("subtractButton1");
+  var elem4 = document.getElementById("subtractButton2");
+  elem.innerHTML = window.matchMedia("(max-width: 480px)").matches ? "+" : "Add";
+  elem2.innerHTML = window.matchMedia("(max-width: 480px)").matches ? "+" : "Add";
+  elem3.innerHTML = window.matchMedia("(max-width: 480px)").matches ? "-" : "Subtract";
+  elem4.innerHTML = window.matchMedia("(max-width: 480px)").matches ? "-" : "Subtract";
+}
+window.onresize = function (event) {
+  matches();
+};
+matches();
 

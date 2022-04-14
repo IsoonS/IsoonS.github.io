@@ -1,584 +1,571 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Kumnh Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kumnh Sans", sans-serif;
 }
 
 .navbar {
-    background: #071434;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  background: #071434;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .navbar_main {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+#navbar_logo {
+  background-color: #878787;
+  background-image: linear-gradient(to top, #ec4156 0%, #ffce41 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.fa-solid {
+  margin: 0.5rem;
+}
+
+.navbar_menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+.navbar_item {
+  height: 80px;
+}
+
+.navbar_link {
+  color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+.navbar_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1px;
+  width: 100%;
+}
+
+.navbar_btn .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #695;
+  color: #ffff;
+}
+
+.navbar_btn .button:hover {
+  background: #131313;
+  transition: all 0.3s ease;
+}
+
+.navbar_link:hover {
+  color: #f77062;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 960px) {
+  .navbar_main {
     display: flex;
     justify-content: space-between;
     height: 80px;
     z-index: 1;
     width: 100%;
     max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 50px;
-}
+    padding: 0;
+  }
 
-#navbar_logo {
-    background-color: #878787;
-    background-image: linear-gradient(to top, #ec4156 0%, #ffce41 100%);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-} 
+  .navbar_menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: -1000px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    height: 50vh;
+    z-index: -1;
+    background: #131311;
+  }
 
-.fa-solid {
-    margin: 0.5rem;
-}
+  .navbar_menu.active {
+    background: #131311;
+    top: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 99;
+    height: 50vh;
+    font-size: 1.6rem;
+  }
 
-.navbar_menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
+  #navbar_logo {
+    padding-left: 25px;
+  }
+
+  .navbar_mobile .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #ffff;
+  }
+
+  .navbar_item {
+    width: 100%;
+  }
+
+  .navbar_link {
     text-align: center;
-}
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
 
-.navbar_item {
+  #mobile-menu {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
+
+  .navbar_btn {
+    padding-bottom: 2rem;
+  }
+
+  .navbar_btn .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
     height: 80px;
-}
+    margin: 0;
+  }
 
-.navbar_link {
-    color: #ffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-}
+  .submit_button {
+    padding-bottom: 2rem;
+  }
 
-.navbar_btn {
+  .subnit_button .submit {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1px;
-    width: 100%;
-}
+    width: 80%;
+    height: 80px;
+    margin: 0;
+  }
 
-.navbar_btn .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background: #695;
-    color: #ffff;
-}
+  .navbar_mobile .bar {
+    display: block;
+    cursor: pointer;
+  }
 
-.navbar_btn .button:hover {
-    background: #131313;
-    transition: all 0.3s ease;
-}
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
 
-.navbar_link:hover {
-    color: #f77062;
-    transition: all 0.3s ease;
-}
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
 
-@media screen and (max-width: 960px) {
-    .navbar_main {
-        display: flex;
-        justify-content: space-between;
-        height: 80px;
-        z-index: 1;
-        width: 100%;
-        max-width: 1300px;
-        padding: 0;
-    }
-
-    .navbar_menu {
-        display: grid;
-        grid-template-columns: auto;
-        margin: 0;
-        width: 100%;
-        position: absolute;
-        top: -1000px;
-        opacity: 0;
-        transition: all 0.5s ease;
-        height: 50vh;
-        z-index: -1;
-        background: #131311;
-    }
-
-    .navbar_menu.active {
-        background: #131311;
-        top: 100%;
-        opacity: 1;
-        transition: all 0.5s ease;
-        z-index: 99;
-        height: 50vh;
-        font-size: 1.6rem;
-    }
-
-    #navbar_logo {
-        padding-left: 25px;
-    }
-
-    .navbar_mobile .bar {
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        transition: all 0.3s ease-in-out;
-        background: #ffff;
-    }
-
-    .navbar_item {
-        width: 100%;
-    }
-
-    .navbar_link {
-        text-align: center;
-        padding: 2rem;
-        width: 100%;
-        display: table;
-    }
-
-    #mobile-menu {
-        position: absolute;
-        top: 20%;
-        right: 5%;
-        transform: translate(5%, 20%);
-    }
-
-    .navbar_btn {
-        padding-bottom: 2rem;
-    }
-
-    .navbar_btn .button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80%;
-        height: 80px;
-        margin: 0;
-    }
-    
-    .submit_button {
-        padding-bottom: 2rem;
-    }
-
-    .subnit_button .submit {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80%;
-        height: 80px;
-        margin: 0;
-    }
-
-    .navbar_mobile .bar {
-        display: block;
-        cursor: pointer;
-    }
-
-
-    #mobile-menu.is-active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    #mobile-menu.is-active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
 
 /* End Nav Styling */
 
 body {
-    background-color: #eeeded;
-  }
-  .flex-container {
-      margin: 10rem 0;
-      width: 100%;
-  }
-  .scoreboard-flexbox {
-    display: flex;
-    flex-direction: row;
-    /* background-color: rgb(0, 255, 60); */
-    box-sizing: border-box;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
-  }
-
-  
-  .item-teamA{
-    
-    width: 30%;
-    box-sizing: border-box;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 20px;
-  }
-  .item-set{
-    width: 25%;
-    box-sizing: border-box;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 20px;
-    position: relative;
-  }
-
-  
-
-  .item-teamB{
-    width: 30%;
-    box-sizing: border-box;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 20px;
-  }
-  
-  
-  .content {
-    /* border: 3px solid yellow; */
-    /* padding: 6rem; */
-    margin: 3rem;
-  }
-  
-  .score-A {
-    padding: 6vw;
-    margin-bottom: 2rem;
-    border: 7px solid #0b1f50;
-    border-radius: 20px;
-    position: relative;
-    background-color:#ffce41;
-    /* width: 0.5rem; */
-  }
-  .score-B {
-    padding: 6vw;
-    margin-bottom: 2rem;
-    border: 7px solid #0b1f50;
-    border-radius: 20px;
-    position: relative;
-    background-color:#fa9ebe;
-    /* width: 0.5rem; */
-  }
-
-  .score-number {
-    width: 100%;
-    /* box-sizing: border-box; */
-    text-align: center;
-    font-size: 6.25vw;
-    padding: 0;
-  }
-
-  .score-number-box {
-      
-  }
-  
-  .team-name {
-    font-size: 2.3vw;
-    text-align: center;
-    position:absolute;
-    top: -4rem;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;   
-    text-align: center;
-  }
-  
-  .home-away {
-    text-align: right;
-    padding-right: 10px;
-    position: absolute;
-    right:1rem;
-    bottom: 1rem;
-    font-size: 1.5vw;
-  }
-  
-  .button-panel {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    box-sizing: border-box;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .button-panel #addButton1{
-    background-color: rgb(0 174 240);
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-right: 10px;
-    /* float: left; */
-  }
-
-  .button-panel #addButton2{
-    background-color: rgb(0 174 240);
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-right: 10px;
-    /* float: left; */
-  }
-
-  .button-panel #subtractButton1{
-    background-color: #ec4156;
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-right: 10px;
-    /* float: left; */
-  }
-
-  .button-panel #subtractButton2{
-    background-color: #ec4156;
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-right: 10px;
-    /* float: left; */
-  }
-  .button-panel #resetButton{
-    background-color: #002581;
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-right: 10px;
-    /* float: left; */
-  }
-
-  
-  
-  .button-panel #resetButton:hover {
-    background-color: #071434;
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    /* float: left; */
-  }
-  .button-panel #subtractButton2:hover {
-    background-color: #071434;
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    /* float: left; */
-  }
-  .button-panel #subtractButton1:hover {
-    background-color: #071434;
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    /* float: left; */
-  }
-  .button-panel #addButton2:hover {
-    background-color: #071434;
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    /* float: left; */
-  }
-  .button-panel #addButton1:hover {
-    background-color: #071434;
-    border: none;
-    color: white;
-    padding: 0.85vw 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4vw;
-    cursor: pointer;
-    border-radius: 10px;
-    /* float: left; */
-  }
-  
-  .item-set .set-team-a h5 {
-    font-size: 4vw;
-    color: white;
-    /* text-align: center; */
+  background-color: #eeeded;
 }
-  .item-set .set-team-b h5 {
-    font-size: 4vw;
-    color: white;
-    /* text-align: center; */
+.flex-container {
+  margin: 10rem 0;
+  width: 100%;
 }
-  
-  .set-panel {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    box-sizing: border-box;
-    flex-wrap: wrap;
-  }
-  
-  .set-panel .set-team-a {
-    border: 5px solid #0b1f50;
-    background-color: rgb(255, 166, 0);
-    width: 6.5vw;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 1rem;
-    border-radius: 20px;
-  }
+.scoreboard-flexbox {
+  display: flex;
+  flex-direction: row;
+  /* background-color: rgb(0, 255, 60); */
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 
-  .set-panel .set-team-b {
-    border: 5px solid #0b1f50;
-    background-color: rgb(255, 0, 128);
-    width: 6.5vw;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 1rem;
-    border-radius: 20px;
-  }
-  
-  .set-panel .set-empty {
-    /* border: 2px solid ; */
-    /* background-color: pink; */
-    width: 20%;
-    text-align: center;
-    box-sizing: border-box;
-  }
+.item-teamA {
+  width: 30%;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+.item-set {
+  width: 25%;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
 
+.item-teamB {
+  width: 30%;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
 
-  #select-sport {
-    float: right;
-    clear: both;
-    box-sizing: border-box;
-    width: 30%;
-    padding: 10px 0;
-    text-align: center;
-    background-color: #071434;
-    border: solid 1px #c3c3c3;
-    color: white;
-    border-radius: none;
-    outline: none;
-    display: none;
-  }
+.content {
+  /* border: 3px solid yellow; */
+  /* padding: 6rem; */
+  margin: 3rem;
+}
 
-  #sport-type {
-    text-align: center;
-    font-size: 2.3vw;
-    font-weight: bold;
-  }
+.score-A {
+  padding: 6vw;
+  margin-bottom: 2rem;
+  border: 7px solid #0b1f50;
+  border-radius: 20px;
+  position: relative;
+  background-color: #ffce41;
+  /* width: 0.5rem; */
+}
+.score-B {
+  padding: 6vw;
+  margin-bottom: 2rem;
+  border: 7px solid #0b1f50;
+  border-radius: 20px;
+  position: relative;
+  background-color: #fa9ebe;
+  /* width: 0.5rem; */
+}
 
-  #submit {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    height: 50%;
-    /* width: 20%; */
-    border-radius: 10px;
-    margin-right: 10px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background: #002581;
-    color: #ffff;
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 130px;
-  }
-  
-  #submit:hover {
-    background: #110f0f;
-    transition: all 0.3s ease;
-  }
+.score-number {
+  width: 100%;
+  /* box-sizing: border-box; */
+  text-align: center;
+  font-size: 6.25vw;
+  padding: 0;
+}
 
-  .select-sport p {
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
+.score-number-box {
+}
 
-  .select-sport input {
-    /* margin-left: 10px; */
-  }
+.team-name {
+  font-size: 2.3vw;
+  text-align: center;
+  position: absolute;
+  top: -4rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
 
+.home-away {
+  text-align: right;
+  padding-right: 10px;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 1.5vw;
+}
 
-  /* #submit_button {
+.button-panel {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-panel #addButton1 {
+  background-color: rgb(0 174 240);
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 10px;
+  /* float: left; */
+}
+
+.button-panel #addButton2 {
+  background-color: rgb(0 174 240);
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 10px;
+  /* float: left; */
+}
+
+.button-panel #subtractButton1 {
+  background-color: #ec4156;
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 10px;
+  /* float: left; */
+}
+
+.button-panel #subtractButton2 {
+  background-color: #ec4156;
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 10px;
+  /* float: left; */
+}
+.button-panel-reset #resetButton {
+  background-color: #002581;
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 10px;
+  /* float: left; */
+}
+
+.button-panel-reset #resetButton:hover {
+  background-color: #071434;
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  /* float: left; */
+}
+.button-panel #subtractButton2:hover {
+  background-color: #071434;
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  /* float: left; */
+}
+.button-panel #subtractButton1:hover {
+  background-color: #071434;
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  /* float: left; */
+}
+.button-panel #addButton2:hover {
+  background-color: #071434;
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  /* float: left; */
+}
+.button-panel #addButton1:hover {
+  background-color: #071434;
+  border: none;
+  color: white;
+  padding: 0.85vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4vw;
+  cursor: pointer;
+  border-radius: 10px;
+  /* float: left; */
+}
+
+.item-set .set-team-a h5 {
+  font-size: 4vw;
+  color: white;
+  /* text-align: center; */
+}
+.item-set .set-team-b h5 {
+  font-size: 4vw;
+  color: white;
+  /* text-align: center; */
+}
+
+.set-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.set-panel .set-team-a {
+  border: 5px solid #0b1f50;
+  background-color: rgb(255, 166, 0);
+  width: 6.5vw;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.set-panel .set-team-b {
+  border: 5px solid #0b1f50;
+  background-color: rgb(255, 0, 128);
+  width: 6.5vw;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.set-panel .set-empty {
+  /* border: 2px solid ; */
+  /* background-color: pink; */
+  width: 20%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#select-sport {
+  float: right;
+  clear: both;
+  box-sizing: border-box;
+  width: 30%;
+  padding: 10px 0;
+  text-align: center;
+  background-color: #071434;
+  border: solid 1px #c3c3c3;
+  color: white;
+  border-radius: none;
+  outline: none;
+  display: none;
+}
+
+#sport-type {
+  text-align: center;
+  font-size: 2.3vw;
+  font-weight: bold;
+}
+
+#submit {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 50%;
+  /* width: 20%; */
+  border-radius: 10px;
+  margin-right: 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #002581;
+  color: #ffff;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 130px;
+}
+
+#submit:hover {
+  background: #110f0f;
+  transition: all 0.3s ease;
+}
+
+.select-sport p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.select-sport input {
+  /* margin-left: 10px; */
+}
+
+/* #submit_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -587,131 +574,128 @@ body {
 
   } */
 
-  /* #select-sport {
+/* #select-sport {
     padding: 50px;
     display: none;
   } */
 
+/* The modal section */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 200px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0, 0.4);
+}
 
-  /* The modal section */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 200px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgb(0, 0, 0, 0.4);
-  }
+/* modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+}
 
-  /* modal content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-    height: 50%;
-    text-align: center;
-  }
+#winnerTeamText {
+  margin: 40px auto;
+  font-size: 30px;
+}
 
-  #winnerTeamText {
-    margin: 40px auto;
-    font-size: 30px;
-  }
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
 
+.close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
+.wrapper {
+  width: 30%;
+  padding: 20px;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
+  border: 1px solid rgb(64 64 64 / 5%);
+  border-radius: 12px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 10px;
+}
+div#stopwatch {
+  font-size: 3.5vw;
+  line-height: 60px;
+  text-align: center;
+  padding: 0 0 30px 0;
+  color: #002581;
+}
+ul#buttons {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ul#buttons li:nth-child(1) button {
+  background: rgb(0 174 240);
+  border: transparent;
+  border-radius: 10px;
+  width: 6vw;
+  color: #fff;
+  font-size: 1vw;
+  text-align: center;
+  display: block;
+  padding: 10px 0 10px 0;
+  cursor: pointer;
+}
+ul#buttons li:nth-child(1) button:hover {
+  background: #071434;
+}
 
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
+ul#buttons li:nth-child(2) button {
+  background: #ec4156;
+  border: transparent;
+  border-radius: 10px;
+  width: 6vw;
+  color: #fff;
+  font-size: 1vw;
+  text-align: center;
+  display: block;
+  padding: 10px 0 10px 0;
+  cursor: pointer;
+}
+ul#buttons li:nth-child(2) button:hover {
+  background: #071434;
+}
 
-  .close:hover {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .wrapper {
-    width: 30%;
-    padding: 20px;
-    margin:0 auto;
-    background: #ffffff;
-    box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
-    border: 1px solid rgb(64 64 64 / 5%);
-    border-radius: 12px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-top: 10px;
-  }
-  div#stopwatch {
-    font-size: 3.5vw;
-    line-height: 60px;
-    text-align: center;
-    padding: 0 0 30px 0;
-    color: #002581;
-  }
-  ul#buttons {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  ul#buttons li:nth-child(1) button {
-    background: rgb(0 174 240);
-    border: transparent;
-    border-radius: 10px;
-    width: 6vw;
-    color: #fff;
-    font-size: 1vw;
-    text-align: center;
-    display: block;
-    padding: 10px 0 10px 0;
-    cursor: pointer;
-  }
-  ul#buttons li:nth-child(1) button:hover {
-    background: #071434;
-  }
-
-  ul#buttons li:nth-child(2) button {
-    background: #ec4156;
-    border: transparent;
-    border-radius: 10px;
-    width: 6vw;
-    color: #fff;
-    font-size: 1vw;
-    text-align: center;
-    display: block;
-    padding: 10px 0 10px 0;
-    cursor: pointer;
-  }
-  ul#buttons li:nth-child(2) button:hover {
-    background: #071434;
-  }
-
-  ul#buttons li:nth-child(3) button {
-    background: #002581;
-    border: transparent;
-    border-radius: 10px;
-    width: 6vw;
-    color: #fff;
-    font-size: 1vw;
-    text-align: center;
-    display: block;
-    padding: 10px 0 10px 0;
-    cursor: pointer;
-  }
-  ul#buttons li:nth-child(3) button:hover {
-    background: #071434;
-  }
+ul#buttons li:nth-child(3) button {
+  background: #002581;
+  border: transparent;
+  border-radius: 10px;
+  width: 6vw;
+  color: #fff;
+  font-size: 1vw;
+  text-align: center;
+  display: block;
+  padding: 10px 0 10px 0;
+  cursor: pointer;
+}
+ul#buttons li:nth-child(3) button:hover {
+  background: #071434;
+}
 
 @media screen and (max-width: 1326px) {
   .wrapper {
@@ -788,7 +772,6 @@ body {
     height: 35px;
     line-height: normal;
   }
-  
 }
 
 @media screen and (max-width: 480px) {
@@ -823,22 +806,6 @@ body {
     border-radius: 15px;
   }
 
-  .button-panel #addButton1 {
-    font-size: 2vw;
-  }
-
-  .button-panel #addButton2 {
-    font-size: 2vw;
-  }
-
-  .button-panel #subtractButton1 {
-    font-size: 2vw;
-  }
-
-  .button-panel #subtractButton2 {
-    font-size: 2vw;
-  }
-
   .button-panel-flex-A {
     display: flex;
     flex-direction: column;
@@ -870,11 +837,11 @@ body {
     text-align: center;
     background-color: rgb(255, 166, 0);
     align-items: center;
-    height: 3rem;
+    height: 10vw;
     display: flex;
     justify-content: center;
-    border-radius: 15px;
-    border: 4px solid #0b1f50;
+    border-radius: 3vw;
+    border: 1vw solid #0b1f50;
   }
   .item-set .set-team-b h5 {
     font-size: 4vw;
@@ -882,11 +849,11 @@ body {
     text-align: center;
     background-color: rgb(255, 0, 128);
     align-items: center;
-    height: 3rem;
+    height: 10vw;
     display: flex;
     justify-content: center;
-    border-radius: 15px;
-    border: 4px solid #0b1f50;
+    border-radius: 3vw;
+    border: 1vw solid #0b1f50;
   }
 
   .set-panel .set-team-a {
@@ -907,80 +874,82 @@ body {
     padding: 0;
     border-radius: none;
   }
-  .content{
+  .content {
     display: flex;
     flex-direction: column;
   }
 
-  .button-panel #resetButton:hover {
-    font-size: 2.5vw;
-    padding: 1.5vw 5vw;;
+  .button-panel-reset #resetButton:hover {
+    font-size: 3.5vw;
+    padding: 1.5vw 5vw;
   }
   .button-panel #subtractButton2:hover {
-    font-size: 2.5vw;
+    font-size: 5.5vw;
+    padding: 0.85vw 7vw;
   }
   .button-panel #subtractButton1:hover {
-    
-    font-size: 2.5vw;
+    font-size: 5.5vw;
+    padding: 0.85vw 7vw;
   }
   .button-panel #addButton2:hover {
-    
-    font-size: 2.5vw;
+    font-size: 5.5vw;
+    padding: 0.85vw 7vw;
   }
   .button-panel #addButton1:hover {
-    
-    font-size: 2.5vw;
-  }
-  .button-panel #resetButton {
-    font-size: 2.5vw ;
+    font-size: 5.5vw;
+    padding: 0.85vw 7vw;
   }
 
   #sport-type {
     font-size: 3.5vw;
+  }
+  .button-panel-reset {
+    display: flex;
+    justify-content: center;
+  }
+  .button-panel-reset #resetButton {
+    background-color: #002581;
+    border: none;
+    color: white;
+    padding: 1.5vw 5vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3.5vw;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-bottom: 45px;
+    justify-self: center;
+    margin-left: 10px;
+  }
+
+  .button-panel #addButton1 {
+    margin-bottom: 10px;
+    font-size: 5.5vw;
+    padding: 0.85vw 7vw;
+  }
+
+  .button-panel #addButton2 {
+    margin-bottom: 10px;
+    font-size: 5.5vw;
+    padding: 0.85vw 7vw;
+  }
+
+  .button-panel #subtractButton1 {
+    margin-right: 0;
+    font-size: 5.5vw;
+    padding: 0.85vw 5vw;
+  }
+
+  .button-panel #subtractButton2 {
+    margin-right: 0;
+    font-size: 5.5vw;
+    padding: 0.85vw 5vw;
+  }
+  .home-away {
+    right: 0rem;
+    bottom: 0rem;
+
+  }
 }
-
-.button-panel #resetButton {
-  background-color: #002581;
-  border: none;
-  color: white;
-  padding: 1.5vw 5vw;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2.5vw;
-  cursor: pointer;
-  border-radius: 10px;
-  margin-right: 10px;
-  margin-bottom: 45px;
-}
-
-.button-panel #addButton1 {
-  margin-bottom: 10px;
-  font-size: 2.5vw;
-  padding: 0.85vw 7vw;
-}
-
-
-.button-panel #addButton2 {
-  margin-bottom: 10px;
-  font-size: 2.5vw;
-  padding: 0.85vw 7vw;
-}
-
-.button-panel #subtractButton1 {
-  margin-right: 0;
-  font-size: 2.5vw;
-  padding: 0.85vw 5vw;
-}
-
-.button-panel #subtractButton2 {
-  margin-right: 0;
-  font-size: 2.5vw;
-  padding: 0.85vw 5vw;
-}
-
-}
-
-  
-  
-  

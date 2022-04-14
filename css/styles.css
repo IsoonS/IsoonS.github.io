@@ -741,6 +741,9 @@ ul#buttons li:nth-child(3) button:hover {
     width: 9vw;
     border-radius: 15px;
   }
+  .set-team-a #set-a {
+
+  }
   .set-panel .set-team-b {
     width: 9vw;
     border-radius: 15px;
@@ -775,6 +778,49 @@ ul#buttons li:nth-child(3) button:hover {
     font-size: 15px;
     height: 35px;
     line-height: normal;
+  }
+  .item-set .set-team-a h5 {
+    font-size: 4vw;
+    color: white;
+    text-align: center;
+    background-color: rgb(255, 166, 0);
+    align-items: center;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 3vw;
+    border: 0.5vw solid #0b1f50;
+  }
+  .item-set .set-team-b h5 {
+    font-size: 4vw;
+    color: white;
+    text-align: center;
+    background-color: rgb(255, 0, 128);
+    align-items: center;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 3vw;
+    border: 0.5vw solid #0b1f50;
+  }
+
+  .set-panel .set-team-a {
+    border: 0;
+    background-color: transparent;
+    width: none;
+    text-align: none;
+    box-sizing: none;
+    padding: 0;
+    border-radius: none;
+  }
+  .set-panel .set-team-b {
+    border: 0;
+    background-color: transparent;
+    width: none;
+    text-align: none;
+    box-sizing: none;
+    padding: 0;
+    border-radius: none;
   }
 }
 
@@ -845,7 +891,7 @@ ul#buttons li:nth-child(3) button:hover {
     display: flex;
     justify-content: center;
     border-radius: 3vw;
-    border: 1vw solid #0b1f50;
+    border: 0.8vw solid #0b1f50;
   }
   .item-set .set-team-b h5 {
     font-size: 4vw;
@@ -857,7 +903,7 @@ ul#buttons li:nth-child(3) button:hover {
     display: flex;
     justify-content: center;
     border-radius: 3vw;
-    border: 1vw solid #0b1f50;
+    border: 0.8vw solid #0b1f50;
   }
 
   .set-panel .set-team-a {

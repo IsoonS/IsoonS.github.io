@@ -188,12 +188,14 @@ class GameScore {
       // player1.addSet();
       // GameScore.updateSet(player1 ,player2);
       console.log("p1 win");
-      document.getElementById("sport-type").innerHTML = "The winner is Team A";
+      // document.getElementById("sport-type").innerHTML = "The winner is Team A";
+      document.getElementById("sport-type").innerHTML = `The winner is ${teamA.getTeamName()}`;
       // console.log(document.getElementById("result"));
       console.log("p----1 win");
       modal.style.display = "block";
       // document.getElementsByClassName("modal-content")[0].innerHTML = "The winner is Team A";
-      document.getElementById("winnerTeamText").innerHTML = "The winner is Team A";
+      // document.getElementById("winnerTeamText").innerHTML = "The winner is Team A";
+      document.getElementById("winnerTeamText").innerHTML = `The winner is ${teamA.getTeamName()}`;
 
 
     } else if (player2.getWinSet() == GameScore.#numOfSetToWin) {
@@ -201,9 +203,11 @@ class GameScore {
       // player2.addSet();
       // GameScore.updateSet(player1 ,player2);
       console.log("p2 win");
-      document.getElementById("sport-type").innerHTML = "The winner is Team B";
+      // document.getElementById("sport-type").innerHTML = "The winner is Team B";
+      document.getElementById("winnerTeamText").innerHTML = `The winner is ${teamB.getTeamName()}`;
       modal.style.display = "block";
-      document.getElementById("winnerTeamText").innerHTML = "The winner is Team B";
+      // document.getElementById("winnerTeamText").innerHTML = "The winner is Team B";
+      document.getElementById("winnerTeamText").innerHTML = `The winner is ${teamB.getTeamName()}`;
     }
   }
 

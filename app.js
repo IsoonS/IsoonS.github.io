@@ -204,7 +204,7 @@ class GameScore {
       // GameScore.updateSet(player1 ,player2);
       console.log("p2 win");
       // document.getElementById("sport-type").innerHTML = "The winner is Team B";
-      document.getElementById("winnerTeamText").innerHTML = `The winner is ${teamB.getTeamName()}`;
+      document.getElementById("sport-type").innerHTML = `The winner is ${teamB.getTeamName()}`;
       modal.style.display = "block";
       // document.getElementById("winnerTeamText").innerHTML = "The winner is Team B";
       document.getElementById("winnerTeamText").innerHTML = `The winner is ${teamB.getTeamName()}`;

@@ -701,6 +701,39 @@ ul#buttons li:nth-child(3) button:hover {
   background: #071434;
 }
 
+.offcanvas-body {
+  flex-grow: 1;
+  padding: 1rem 1rem;
+  overflow-y: auto;
+  background-color: #eeeded;
+  color: #071434;
+}
+
+.offcanvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background-color: #071434;
+  color: #eeeded;
+}
+
+.offcanvas-header .btn-close {
+  padding: .5rem .5rem;
+  margin-top: -.5rem;
+  margin-right: -.5rem;
+  margin-bottom: -.5rem;
+  background-color: white;
+}
+
+.sport-type {
+  display: inline-block;
+  font-weight: bold;
+}
+.sport-result {
+  display: inline-block;
+}
+
 @media screen and (max-width: 1326px) {
   .wrapper {
     min-width: 300px;
@@ -726,6 +759,11 @@ ul#buttons li:nth-child(3) button:hover {
   }
   .set-panel {
     flex-wrap: nowrap;
+  }
+
+  .sport-result {
+    display: inline-block;
+    font-size: 1.2rem;
   }
 }
 

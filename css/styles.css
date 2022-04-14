@@ -378,6 +378,10 @@ body {
   margin-right: 10px;
   /* float: left; */
 }
+.button-panel-reset {
+  display: flex;
+  justify-content: center;
+}
 .button-panel-reset #resetButton {
   background-color: #002581;
   border: none;

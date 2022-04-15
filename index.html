@@ -15,64 +15,67 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar_main">
-            <a href="index.html" id="navbar_logo"><i class="fa-solid fa-chess-rook"></i>PointCounter</a>
-            <div class="navbar_mobile" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="navbar_menu">
-                <li class="navbar_item">
-                    <a href="#" class="navbar_link">Home</a>
-                </li>
-                <li class="navbar_item">
-                    <a href="about.html" class="navbar_link">About</a>
-                </li>
-                <li class="navbar_item">
-                    <a href="contact.html" class="navbar_link">Contact</a>
-                </li>
-                <li class="navbar_btn">
-                    <!-- https://stackoverflow.com/questions/7347786/html-anchor-tag-with-javascript-onclick-event -->
-                    <div class="offcanvas offcanvas-end" id="demo">
-                        <div class="offcanvas-header">
-                            <h1 class="offcanvas-title">Choose the sport</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <div class="select-sport-offcanvas" style="text-align: left;">
-                                <div class="sport-type">
-                                    <input type="radio" name="type-sport" value="Badminton" checked>
-                                    <h5 class="sport-type">Badminton</h5>
-                                    <br>
-                                    <input type="radio" name="type-sport" value="Table tennis">
-                                    <h5 class="sport-type">Table tennis</h5>
-                                    <br>
-                                    <input type="radio" name="type-sport" value="Volleyball">
-                                    <h5 class="sport-type">Volleyball</h5>
-                                    <br>
-                                    <input type="radio" name="type-sport" value="Sepak takraw">
-                                    <h5 class="sport-type">Sepak takraw</h5>
-                                    <br>
+    <div class="section-nav">
+        <nav class="navbar">
+            <div class="navbar_main">
+                <a href="index.html" id="navbar_logo"><i class="fa-solid fa-chess-rook"></i>PointCounter</a>
+                <div class="navbar_mobile" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="navbar_menu">
+                    <li class="navbar_item">
+                        <a href="#" class="navbar_link">Home</a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href="about.html" class="navbar_link">About</a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href="contact.html" class="navbar_link">Contact</a>
+                    </li>
+                    <li class="navbar_btn">
+                        <!-- https://stackoverflow.com/questions/7347786/html-anchor-tag-with-javascript-onclick-event -->
+                        <div class="offcanvas offcanvas-end" id="demo">
+                            <div class="offcanvas-header">
+                                <h1 class="offcanvas-title">Choose the sport</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="select-sport-offcanvas" style="text-align: left;">
+                                    <div class="sport-type">
+                                        <input type="radio" name="type-sport" value="Badminton" checked>
+                                        <h5 class="sport-type">Badminton</h5>
+                                        <br>
+                                        <input type="radio" name="type-sport" value="Table tennis">
+                                        <h5 class="sport-type">Table tennis</h5>
+                                        <br>
+                                        <input type="radio" name="type-sport" value="Volleyball">
+                                        <h5 class="sport-type">Volleyball</h5>
+                                        <br>
+                                        <input type="radio" name="type-sport" value="Sepak takraw">
+                                        <h5 class="sport-type">Sepak takraw</h5>
+                                        <br>
+                                    </div>
+                                    <button type="button" id="submit" onclick="displayRadioValue()">
+                                        Submit
+                                    </button>
+                                    <div class="sport-result" id="result">Type of sport: Badminton, Set point: 21</div>
                                 </div>
-                                <button type="button" id="submit" onclick="displayRadioValue()">
-                                    Submit
-                                </button>
-                                <div class="sport-result" id="result">Type of sport: Badminton, Set point: 21</div>
                             </div>
                         </div>
-                    </div>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"
-                        style="font-size: 1.25rem; background-color: #695; border-color: black">
-                        Select Sports
-                    </button>
-        </div>
-        </li>
-        </ul>
-        </div>
-        </div>
-    </nav>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"
+                            style="font-size: 1.25rem; background-color: #695; border-color: black; padding-left: 17.5px; padding-right: 17.8px; padding-top: 2px;" >
+                            Select Sports
+                        </button>
+            </div>
+            </li>
+            </ul>
+            </div>
+            </div>
+        </nav>
+    </div>
+    
 
     <section>
         <div class="wrapper">
@@ -112,14 +115,6 @@
                 </div>
 
                 <div class="item-set">
-                    <!-- <div class="wrapper">
-                        <div id="stopwatch">00:00:00</div>
-                        <ul id="buttons">
-                          <li><button id="start">Start</button></li>
-                          <li><button id="pause">Stop</button></li>
-                          <li><button id="reset">Reset</button></li>
-                        </ul>
-                      </div> -->
                     <div class="content-container">
                         <div class="content">
                             <div id="sport-type">

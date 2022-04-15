@@ -225,7 +225,6 @@ body {
 .scoreboard-flexbox {
   display: flex;
   flex-direction: row;
-  /* background-color: rgb(0, 255, 60); */
   box-sizing: border-box;
   flex-wrap: wrap;
   justify-content: center;
@@ -257,8 +256,6 @@ body {
 }
 
 .content {
-  /* border: 3px solid yellow; */
-  /* padding: 6rem; */
   margin: 3rem;
 }
 
@@ -269,7 +266,6 @@ body {
   border-radius: 20px;
   position: relative;
   background-color: #ffce41;
-  /* width: 0.5rem; */
 }
 .score-B {
   padding: 6vw;
@@ -278,12 +274,10 @@ body {
   border-radius: 20px;
   position: relative;
   background-color: #fa9ebe;
-  /* width: 0.5rem; */
 }
 
 .score-number {
   width: 100%;
-  /* box-sizing: border-box; */
   text-align: center;
   font-size: 6.25vw;
   padding: 0;
@@ -334,7 +328,6 @@ body {
   cursor: pointer;
   border-radius: 10px;
   margin-right: 10px;
-  /* float: left; */
 }
 
 .button-panel #addButton2 {
@@ -349,7 +342,6 @@ body {
   cursor: pointer;
   border-radius: 10px;
   margin-right: 10px;
-  /* float: left; */
 }
 
 .button-panel #subtractButton1 {
@@ -364,7 +356,6 @@ body {
   cursor: pointer;
   border-radius: 10px;
   margin-right: 10px;
-  /* float: left; */
 }
 
 .button-panel #subtractButton2 {
@@ -379,7 +370,6 @@ body {
   cursor: pointer;
   border-radius: 10px;
   margin-right: 10px;
-  /* float: left; */
 }
 .button-panel-reset {
   display: flex;
@@ -397,7 +387,6 @@ body {
   cursor: pointer;
   border-radius: 10px;
   margin-right: 10px;
-  /* float: left; */
 }
 
 .button-panel-reset #resetButton:hover {
@@ -411,7 +400,6 @@ body {
   font-size: 1.4vw;
   cursor: pointer;
   border-radius: 10px;
-  /* float: left; */
 }
 .button-panel #subtractButton2:hover {
   background-color: #071434;
@@ -424,7 +412,6 @@ body {
   font-size: 1.4vw;
   cursor: pointer;
   border-radius: 10px;
-  /* float: left; */
 }
 .button-panel #subtractButton1:hover {
   background-color: #071434;
@@ -437,7 +424,6 @@ body {
   font-size: 1.4vw;
   cursor: pointer;
   border-radius: 10px;
-  /* float: left; */
 }
 .button-panel #addButton2:hover {
   background-color: #071434;
@@ -450,7 +436,6 @@ body {
   font-size: 1.4vw;
   cursor: pointer;
   border-radius: 10px;
-  /* float: left; */
 }
 .button-panel #addButton1:hover {
   background-color: #071434;
@@ -463,18 +448,15 @@ body {
   font-size: 1.4vw;
   cursor: pointer;
   border-radius: 10px;
-  /* float: left; */
 }
 
 .item-set .set-team-a h5 {
   font-size: 4vw;
   color: white;
-  /* text-align: center; */
 }
 .item-set .set-team-b h5 {
   font-size: 4vw;
   color: white;
-  /* text-align: center; */
 }
 
 .set-panel {
@@ -506,8 +488,6 @@ body {
 }
 
 .set-panel .set-empty {
-  /* border: 2px solid ; */
-  /* background-color: pink; */
   width: 20%;
   text-align: center;
   box-sizing: border-box;
@@ -541,7 +521,6 @@ body {
   text-decoration: none;
   padding: 10px 20px;
   height: 50%;
-  /* width: 20%; */
   border-radius: 10px;
   margin-right: 10px;
   border: none;
@@ -567,24 +546,6 @@ body {
   margin-bottom: 10px;
   font-weight: bold;
 }
-
-.select-sport input {
-  /* margin-left: 10px; */
-}
-
-/* #submit_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1px;
-    width: 100%;
-
-  } */
-
-/* #select-sport {
-    padding: 50px;
-    display: none;
-  } */
 
 /* The modal section */
 .modal {

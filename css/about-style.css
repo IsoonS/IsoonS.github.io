@@ -240,7 +240,7 @@ a.disable {
     display: grid;
     grid-template-columns: 1fr 0.7fr;
     grid-template-rows: 1fr;
-  margin-top: 10vh;
+  margin-top: 8vh;
 }
 .content-left-1 {
   color: white;

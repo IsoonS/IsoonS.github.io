@@ -269,7 +269,7 @@ a.disable {
 }
 
 ul {
-    font-size: 1vw;
+    /* font-size: 1vw; */
     text-decoration: none;
     list-style: none;
     margin-left: 1.5vw;

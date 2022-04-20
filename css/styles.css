@@ -449,6 +449,13 @@ body {
   cursor: pointer;
   border-radius: 10px;
 }
+.set-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
 
 .item-set .set-team-a h5 {
   font-size: 4vw;
@@ -458,15 +465,6 @@ body {
   font-size: 4vw;
   color: white;
 }
-
-.set-panel {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-}
-
 .set-panel .set-team-a {
   border: 5px solid #0b1f50;
   background-color: rgb(255, 166, 0);
@@ -476,7 +474,6 @@ body {
   padding: 1rem;
   border-radius: 20px;
 }
-
 .set-panel .set-team-b {
   border: 5px solid #0b1f50;
   background-color: rgb(255, 0, 128);
@@ -486,6 +483,50 @@ body {
   padding: 1rem;
   border-radius: 20px;
 }
+
+/* .item-set .set-team-a h5 {
+  font-size: 4vw;
+  color: white;
+  text-align: center;
+  background-color: rgb(255, 166, 0);
+  align-items: center;
+  height: 10vw;
+  display: flex;
+  justify-content: center;
+  border-radius: 2vw;
+  border: 0.8vw solid #0b1f50;
+}
+.item-set .set-team-b h5 {
+  font-size: 4vw;
+  color: white;
+  text-align: center;
+  background-color: rgb(255, 0, 128);
+  align-items: center;
+  height: 10vw;
+  display: flex;
+  justify-content: center;
+  border-radius: 2vw;
+  border: 0.8vw solid #0b1f50;
+}
+
+.set-panel .set-team-a {
+  border: 0;
+  background-color: transparent;
+  width: 7vw;
+  text-align: none;
+  box-sizing: none;
+  padding: 0;
+  border-radius: none;
+}
+.set-panel .set-team-b {
+  border: 0;
+  background-color: transparent;
+  width: 7vw;
+  text-align: none;
+  box-sizing: none;
+  padding: 0;
+  border-radius: none;
+} */
 
 .set-panel .set-empty {
   width: 20%;
@@ -799,7 +840,7 @@ ul#buttons li:nth-child(3) button:hover {
     height: 10vw;
     display: flex;
     justify-content: center;
-    border-radius: 3vw;
+    border-radius: 2vw;
     border: 0.5vw solid #0b1f50;
   }
   .item-set .set-team-b h5 {
@@ -811,7 +852,7 @@ ul#buttons li:nth-child(3) button:hover {
     height: 10vw;
     display: flex;
     justify-content: center;
-    border-radius: 3vw;
+    border-radius: 2vw;
     border: 0.5vw solid #0b1f50;
   }
 
@@ -903,7 +944,7 @@ ul#buttons li:nth-child(3) button:hover {
     height: 10vw;
     display: flex;
     justify-content: center;
-    border-radius: 3vw;
+    border-radius: 2vw;
     border: 0.8vw solid #0b1f50;
   }
   .item-set .set-team-b h5 {
@@ -915,7 +956,7 @@ ul#buttons li:nth-child(3) button:hover {
     height: 10vw;
     display: flex;
     justify-content: center;
-    border-radius: 3vw;
+    border-radius: 2vw;
     border: 0.8vw solid #0b1f50;
   }
 

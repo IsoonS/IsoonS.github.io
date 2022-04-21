@@ -386,6 +386,7 @@ function getFromPhp() {
 
 const teamA = new ScorePlayer1("Team A");
 const teamB = new ScorePlayer2("Team B");
+let milli_second;
 
 // setDefaultVariables();
 
@@ -424,6 +425,7 @@ function setDefaultVariables() {
     GameScore.setSetPoint(dataFromCache['set_point']);
     GameScore.setNumOfSetToWin(dataFromCache['num_of_set_to_win']);
     GameScore.setHaveWinner(dataFromCache['have_winner']);
+    milli_second = dataFromCache['milli_second'];
 
     // document.querySelector(`input[value=${dataFromCache['sport']}]`); 
     // console.log(document.querySelector(`input[value=${dataFromCache['sport']}]`));
@@ -446,8 +448,8 @@ function setDefaultVariables() {
     }
   }
   else {
-    // if not have retrieve from php -> from database
     dataFromCache = "not have";
+    milli_second = 0;
   }
 
 
@@ -476,6 +478,8 @@ function backUpVariables() {
   backUpData['set_point'] = dataArray[7];
   backUpData['num_of_set_to_win'] = dataArray[8];
   backUpData['have_winner'] = dataArray[9];
+  backUpData['milli_second'] = milli_second;
+  console.log(milli_second);
   localStorage['scoreKey'] = JSON.stringify(backUpData);
   console.log(backUpData);
 }
@@ -620,16 +624,20 @@ function editTeamName() {
 // https://dev.to/stackfindover/how-to-create-a-stopwatch-in-javascript-57a8
 // Stopwatch script
 const watch = document.querySelector("#stopwatch");
-let millisecound = 0;
+let dateTimer = new Date(milli_second);
+watch.innerHTML = ('0' + dateTimer.getUTCHours()).slice(-2) + ':' +
+  ('0' + dateTimer.getUTCMinutes()).slice(-2) + ':' +
+  ('0' + dateTimer.getUTCSeconds()).slice(-2);
 let timer;
 
 function timeStart() {
   watch.style.color = "#002581";
   clearInterval(timer);
   timer = setInterval(() => {
-    millisecound += 1000;
+    milli_second += 1000;
+    backUpVariables();
 
-    let dateTimer = new Date(millisecound);
+    let dateTimer = new Date(milli_second);
 
     watch.innerHTML =
       ('0' + dateTimer.getUTCHours()).slice(-2) + ':' +
@@ -647,7 +655,7 @@ function timePaused() {
 function timeReset() {
   watch.style.color = "#002581";
   setInterval(timer)
-  millisecound = 0;
+  milli_second = 0;
   watch.innerHTML = "00:00:00";
 }
 
@@ -709,7 +717,7 @@ function onLoad() {
 function resizeCanvas() {
   if (!!canvas) {
     w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight/10;
+    h = canvas.height = window.innerHeight / 10;
   }
 }
 

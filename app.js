@@ -184,6 +184,7 @@ class GameScore {
   static checkWinner(player1, player2) {
     console.log(player1.getWinSet());
     if (player1.getWinSet() == GameScore.#numOfSetToWin) {
+      timePaused();
       GameScore.#haveWinner = true;
       // player1.addSet();
       // GameScore.updateSet(player1 ,player2);
@@ -199,6 +200,7 @@ class GameScore {
 
 
     } else if (player2.getWinSet() == GameScore.#numOfSetToWin) {
+      timePaused();
       GameScore.#haveWinner = true;
       // player2.addSet();
       // GameScore.updateSet(player1 ,player2);

@@ -1,0 +1,156 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+// import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+import { collection, getDocs, setDoc, doc, addDoc, onSnapshot, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+import { ref, set, getDatabase } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+// import { getFirestore } from "firebase/firestore";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyAXKnPE9I9okdxrLkGLbhE1qPmU85AhUYA",
+    authDomain: "scoretracker-c2542.firebaseapp.com",
+    projectId: "scoretracker-c2542",
+    storageBucket: "scoretracker-c2542.appspot.com",
+    messagingSenderId: "325829243254",
+    appId: "1:325829243254:web:797f5eb2c12ca604970a57",
+    measurementId: "G-V052LXBEDY",
+    databaseURL: "https://scoretracker-c2542-default-rtdb.asia-southeast1.firebasedatabase.app/"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+export const db = getFirestore(app);
+
+
+// db.collection.get().then(user => {
+//     user.docs.array.forEach(doc => {
+//         console.log(dog);
+//     });
+// })
+console.log("ok");
+
+export async function listAll() {
+    const querySnapshot = await getDocs(collection(db, "record"));
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+    return querySnapshot;
+}
+
+export async function addNew(id, score_a, score_b, set_a, set_b, type, finished) {
+    // // Add a new document in collection "cities"
+    // // await setDoc(doc(db, "record", id), {
+    // //     "score-a": score_a,
+    // //     "set-a": set_a,
+    // //     "score-b": score_b,
+    // //     "set_b": set_b,
+    // //     "type": type,
+    // //     "finished": finished
+    // // });
+    // const recordRef = db.collection("record").doc();
+    // const recordID = recordRef.id;
+    // await recordRef.set({
+    //     "score-a": score_a,
+    //     "set-a": set_a,
+    //     "score-b": score_b,
+    //     "set_b": set_b,
+    //     "type": type,
+    //     "finished": finished
+    // });
+
+    // const res = await db.collection('record').add({
+    //     "score-a": score_a,
+    //     "set-a": set_a,
+    //     "score-b": score_b,
+    //     "set_b": set_b,
+    //     "type": type,
+    //     "finished": finished
+    // });
+
+    await addDoc(collection(db, "record"), {
+        "score-a": score_a,
+        "set-a": set_a,
+        "score-b": score_b,
+        "set-b": set_b,
+        "type": type,
+        "finished": finished
+    });
+}
+// let dt = 'ok'
+
+// const unsub = onSnapshot(doc(db, "record", "ijSe5pbrQrus3ErOsDMH"), (doc) => {
+//     console.log("Current data: ", doc.data());
+// });
+
+export async function getDataByID(yourID) {
+    const docRef = doc(db, "record", yourID);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+
+    return docSnap.data()
+
+}
+
+export async function updateData(id, score_a, score_b, set_a, set_b, type, finished) {
+    // let db = getDatabase();
+    // set(ref(db, '/record/' + id), {
+    //     "score-a": score_a,
+    //     "set-a": set_a,
+    //     "score-b": score_b,
+    //     "set-b": set_b,
+    //     "type": type,
+    //     "finished": finished
+    // });
+    // const cityRef = db.collection('record').doc(id);
+    // console.log(cityRef);
+    // await cityRef.update({
+    //         "score-a": score_a,
+    //         "set-a": set_a,
+    //         "score-b": score_b,
+    //         "set-b": set_b,
+    //         "type": type,
+    //         "finished": finished
+    //     });
+
+    const frankDocRef = doc(db, "record", id);
+    await setDoc(frankDocRef, {
+        "score-a": score_a,
+        "set-a": set_a,
+        "score-b": score_b,
+        "set-b": set_b,
+        "type": type,
+        "finished": finished
+    });
+
+    // // To update age and favorite color:
+    // await updateDoc(frankDocRef, {
+    //     "age": 13,
+    //     "favorites.color": "Red"
+    // });
+
+
+}
+
+
+
+// await update('2XIgg73t1H00xPoPmD60', 5, 5, 5, 5, "pingpong", true)
+
+// listAll()
+
+
+

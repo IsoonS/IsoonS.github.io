@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1 id="sport-type">sport-type</h1>
+        <div>
+            <h1 id="score-a">
+                0
+            </h1>
+            <button id="add-1">
+                add1
+            </button>
+        </div>
+        <div>
+            <h1 id="score-b">
+                0
+            </h1>
+            <button id="add-2">
+                add2
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let yourID = localStorage.getItem("yourID")
+        console.log(yourID);
+    </script>
+
+    <script type="module" src="md.js">
+        
+    </script>
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>

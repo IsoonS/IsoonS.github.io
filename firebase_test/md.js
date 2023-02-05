@@ -127,15 +127,32 @@ export async function updateData(id, score_a, score_b, set_a, set_b, type, finis
     //         "finished": finished
     //     });
 
-    const frankDocRef = doc(db, "record", id);
-    await setDoc(frankDocRef, {
-        "score-a": score_a,
-        "set-a": set_a,
-        "score-b": score_b,
-        "set-b": set_b,
-        "type": type,
-        "finished": finished
-    });
+    // // is id exist.
+    // ref.child("record").orderByChild("ID").equalTo(id).once("value",snapshot => {
+    //     if (snapshot.exists()){
+    //       const userData = snapshot.val();
+    //       console.log("exists!", userData);
+    //     }
+    // });
+
+
+    if(getDataByID(id))
+    {
+
+        const frankDocRef = doc(db, "record", id);
+        await setDoc(frankDocRef, {
+            "score-a": score_a,
+            "set-a": set_a,
+            "score-b": score_b,
+            "set-b": set_b,
+            "type": type,
+            "finished": finished
+        });
+
+    } else {
+        alert("kuyyyy")
+    }
+
 
     // // To update age and favorite color:
     // await updateDoc(frankDocRef, {

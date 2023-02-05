@@ -87,9 +87,22 @@ export async function addNew(id, score_a, score_b, set_a, set_b, type, finished)
 }
 // let dt = 'ok'
 
-// const unsub = onSnapshot(doc(db, "record", "ijSe5pbrQrus3ErOsDMH"), (doc) => {
+// export const unsub = onSnapshot(doc(db, "record", "ijSe5pbrQrus3ErOsDMH"), (doc) => {
 //     console.log("Current data: ", doc.data());
 // });
+
+
+
+// // // change realtime
+// export function getRealtime() {
+//     let yourID = localStorage.getItem("yourID")
+//     onSnapshot(doc(db, "record", yourID), (doc) => {
+//         console.log("Current data: ", doc.data());
+//         document.getElementById("score-a").innerHTML = doc.data()['score-a']
+//         document.getElementById("score-b").innerHTML = doc.data()['score-b']
+//     });
+// }
+// // // 
 
 export async function getDataByID(yourID) {
     const docRef = doc(db, "record", yourID);
@@ -150,7 +163,7 @@ export async function updateData(id, score_a, score_b, set_a, set_b, type, finis
         });
 
     } else {
-        alert("kuyyyy")
+        alert("kuy")
     }
 
 

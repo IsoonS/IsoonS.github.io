@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="gen-qr">
+        gen qr
+    </button>
+    <img src="" alt="" id="qr-img" />
+
+    <!-- https://stackoverflow.com/questions/814613/how-to-read-get-data-from-a-url-using-javascript -->
+    <script src="./genqr.js"></script>
+    <script>
+        let qr_img = document.querySelector("#qr-img")
+        let qr_btn = document.getElementById("gen-qr");
+        qr_btn.addEventListener("click", () => {
+            // loading
+            // loading.style.display = "block"
+            // qr_img.onload = function () {
+            //     loading.style.display = "none"
+            // }
+            let yourID = localStorage.getItem("yourID")
+            // generate image
+            // var input = document.querySelector("#input").value
+            var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=./genqr.html?id=${yourID}`
+            qr_img.src = url
+        })
+    </script>
+</body>
+
+</html>

@@ -46,7 +46,7 @@ export async function listAll() {
     return querySnapshot;
 }
 
-export async function addNew(id, score_a, score_b, set_a, set_b, type, finished) {
+export async function addNew(id, score_a, score_b, set_a, set_b, type, finished, teamNameA="Team A", teamNameB = "Team B") {
     // // Add a new document in collection "cities"
     // // await setDoc(doc(db, "record", id), {
     // //     "score-a": score_a,
@@ -82,7 +82,9 @@ export async function addNew(id, score_a, score_b, set_a, set_b, type, finished)
         "score-b": score_b,
         "set-b": set_b,
         "type": type,
-        "finished": finished
+        "finished": finished,
+        "name-a": teamNameA,
+        "name-b": teamNameB
     });
 }
 // let dt = 'ok'
@@ -119,7 +121,7 @@ export async function getDataByID(yourID) {
 
 }
 
-export async function updateData(id, score_a, score_b, set_a, set_b, type, finished) {
+export async function updateData(id, score_a, score_b, set_a, set_b, type, isFinished) {
     // let db = getDatabase();
     // set(ref(db, '/record/' + id), {
     //     "score-a": score_a,
@@ -159,11 +161,11 @@ export async function updateData(id, score_a, score_b, set_a, set_b, type, finis
             "score-b": score_b,
             "set-b": set_b,
             "type": type,
-            "finished": finished
+            "finished": isFinished
         });
 
     } else {
-        alert("kuy")
+        alert("Please check your ID")
     }
 
 
@@ -178,7 +180,7 @@ export async function updateData(id, score_a, score_b, set_a, set_b, type, finis
 
 
 
-// await update('2XIgg73t1H00xPoPmD60', 5, 5, 5, 5, "pingpong", true)
+// await update('g', 5, 5, 5, 5, "pingpong", true)
 
 // listAll()
 

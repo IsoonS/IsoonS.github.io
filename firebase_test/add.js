@@ -6,7 +6,12 @@ document.getElementById("new-bt").addEventListener("click", function () {
   let e = document.getElementById("type-s");
   let value = e.value;
   let typeOfSport = e.options[e.selectedIndex].text;
-  addNew("", 0, 0, 0, 0, typeOfSport, false)
+
+  let nameA = document.getElementById("team-a").value
+  let nameB = document.getElementById("team-b").value
+
+
+  addNew("", 0, 0, 0, 0, typeOfSport, false, nameA, nameB)
   document.getElementById("new-bt").disabled = true;
 
 

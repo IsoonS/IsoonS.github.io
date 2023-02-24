@@ -11,7 +11,7 @@ async function showData() {
     const table = document.createElement("table");
     table.setAttribute("id", "table")
     const headerRow = document.createElement("tr");
-    const headers = ["id", "Score A", "Set A", "Score B", "Set B", "Type", "Finished"];
+    const headers = ["id", "Score A", "Set A", "Score B", "Set B", "Type", "Finished", "Name-A", "Name-B"];
     headers.forEach(header => {
         const th = document.createElement("th");
     
@@ -38,6 +38,8 @@ async function showData() {
         let set_b = doc.data()["set-b"];
         let type = doc.data()["type"];
         let finished = doc.data()["finished"];
+        let name_a = doc.data()["name-a"]
+        let name_b = doc.data()["name-b"]
         const dataRow = document.createElement("tr");
         
         
@@ -75,6 +77,14 @@ async function showData() {
         const finishedE = document.createElement("td");
         finishedE.textContent = finished;
         dataRow.appendChild(finishedE);
+
+        const nameA = document.createElement("td");
+        nameA.textContent = name_a;
+        dataRow.appendChild(nameA);
+
+        const nameB = document.createElement("td");
+        nameB.textContent = name_b;
+        dataRow.appendChild(nameB);
     
         setA.style.borderRight = "1px solid black";
         setA.style.padding = "5px";
@@ -90,6 +100,12 @@ async function showData() {
     
         typeE.style.borderRight = "1px solid black";
         typeE.style.padding = "5px";
+
+        nameA.style.borderRight = "1px solid black";
+        nameA.style.padding = "5px";
+
+        nameB.style.borderRight = "1px solid black";
+        nameB.style.padding = "5px";
     
         table.appendChild(dataRow);
     

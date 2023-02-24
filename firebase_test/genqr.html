@@ -15,7 +15,7 @@
     <img src="" alt="" id="qr-img" />
 
     <!-- https://stackoverflow.com/questions/814613/how-to-read-get-data-from-a-url-using-javascript -->
-    <script src="./genqr.js"></script>
+    <!-- <script src="./genqr.js"></script> -->
     <script>
         let qr_img = document.querySelector("#qr-img")
         let qr_btn = document.getElementById("gen-qr");
@@ -28,7 +28,7 @@
             let yourID = localStorage.getItem("yourID")
             // generate image
             // var input = document.querySelector("#input").value
-            var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://isoons.github.io/firebase_test/genqr.html?id=${yourID}`
+            var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://isoons.github.io/firebase_test/viewer_redirect.html?id=${yourID}`
             qr_img.src = url
         })
     </script>

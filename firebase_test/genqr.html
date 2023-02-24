@@ -28,7 +28,7 @@
             let yourID = localStorage.getItem("yourID")
             // generate image
             // var input = document.querySelector("#input").value
-            var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=./genqr.html?id=${yourID}`
+            var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://isoons.github.io/firebase_test/genqr.html?id=${yourID}`
             qr_img.src = url
         })
     </script>

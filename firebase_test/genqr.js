@@ -14,3 +14,7 @@ const id = urlParams.get('id')
 
 console.log(id);
 
+let yourID = localStorage.getItem("yourID")
+
+window.location.replace("https://isoons.github.io/firebase_test/view_by_id.html");
+

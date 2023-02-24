@@ -6,6 +6,7 @@ import { collection, getDocs, setDoc, doc, addDoc, onSnapshot, updateDoc, getDoc
 // change realtime
 export function getRealtime() {
     let yourID = localStorage.getItem("yourID")
+    console.log(yourID);
     onSnapshot(doc(db, "record", yourID), (doc) => {
         console.log("Current data: ", doc.data());
         document.getElementById("score-a").innerHTML = doc.data()['score-a']

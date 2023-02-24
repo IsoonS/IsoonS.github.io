@@ -16,7 +16,7 @@ const id = urlParams.get('id')
 
 console.log(id);
 
-let yourID = localStorage.getItem("yourID")
+localStorage.setItem("yourID", id);
 
 
 console.log("before redirect");

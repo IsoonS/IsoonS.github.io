@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .countdown {
+            text-align: center;
+        }
+        .countdown div {
+            margin: 10px 0;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <h1>End Of Co-Op</h1>
+        <h3>Until 2024-10-11</h3>
+        <br><br>
+        <div id="weeks">0 Weeks</div>
+        <div id="days">0 Days</div>
+        <div id="hours">0 Hours</div>
+        <div id="minutes">0 Minutes</div>
+        <div id="seconds">0 Seconds</div>
+        <br>
+        <br>
+        <br>
+        <div id="total_days">Totals: 0 Days</div>
+    </div>
+
+    <script>
+        // Set the target date (year, month, day, hours, minutes, seconds)
+        const targetDate = new Date(2024, 9, 11, 23, 59, 59); // Months are 0-based, so 11 means December
+
+        // Update the countdown every second
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Calculate time components
+            const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
+            const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+            const total_days = weeks * 7 + days;
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the results
+            document.getElementById('weeks').innerHTML = `${weeks} Weeks`;
+            document.getElementById('days').innerHTML = `${days} Days`;
+            document.getElementById('hours').innerHTML = `${hours} Hours`;
+            document.getElementById('minutes').innerHTML = `${minutes} Minutes`;
+            document.getElementById('seconds').innerHTML = `${seconds} Seconds`;
+
+            document.getElementById('total_days').innerHTML = `Totals: ${total_days} Days`;
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById('weeks').innerHTML = '0 Weeks';
+                document.getElementById('days').innerHTML = '0 Days';
+                document.getElementById('hours').innerHTML = '0 Hours';
+                document.getElementById('minutes').innerHTML = '0 Minutes';
+                document.getElementById('seconds').innerHTML = '0 Seconds';
+                document.getElementById('total_days').innerHTML = 'Totals: 0 Days';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -27,7 +27,9 @@
     <div class="countdown">
         <h1>End Of Co-Op</h1>
         <h3>Until 2024-10-11</h3>
-        <br><br>
+        <br>
+        <div id="today"></div>
+        <br>
         <div id="weeks">0 Weeks</div>
         <div id="days">0 Days</div>
         <div id="hours">0 Hours</div>
@@ -45,6 +47,19 @@
 
         // Update the countdown every second
         const countdown = setInterval(() => {
+
+            const currentDate = new Date();
+
+            const options = { 
+                weekday: 'long', 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric' 
+            };
+
+            const formattedDate = currentDate.toLocaleDateString('en-US', options);
+
+
             const now = new Date().getTime();
             const distance = targetDate - now;
 
@@ -57,6 +72,7 @@
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Display the results
+            document.getElementById('today').innerHTML = `${formattedDate}`;
             document.getElementById('weeks').innerHTML = `${weeks} Weeks`;
             document.getElementById('days').innerHTML = `${days} Days`;
             document.getElementById('hours').innerHTML = `${hours} Hours`;

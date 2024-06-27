@@ -29,6 +29,7 @@
         <h3>Until 2024-10-11</h3>
         <br>
         <div id="today"></div>
+        <div id="today-th"></div>
         <br>
         <div id="weeks">0 Weeks</div>
         <div id="days">0 Days</div>
@@ -58,7 +59,7 @@
             };
 
             const formattedDate = currentDate.toLocaleDateString('en-US', options);
-
+            const formattedDateTH = currentDate.toLocaleDateString('th-TH', options);
 
             const now = new Date().getTime();
             const distance = targetDate - now;
@@ -73,6 +74,7 @@
 
             // Display the results
             document.getElementById('today').innerHTML = `${formattedDate}`;
+            document.getElementById('today-th').innerHTML = `${formattedDateTH}`;
             document.getElementById('weeks').innerHTML = `${weeks} Weeks`;
             document.getElementById('days').innerHTML = `${days} Days`;
             document.getElementById('hours').innerHTML = `${hours} Hours`;
